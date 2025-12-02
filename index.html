@@ -3,414 +3,147 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SUDHEER J | Digital Film-maker</title>
-    
-    <!-- ICONS & FONTS -->
+    <title>SUDHEER | Visual Director</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <!-- ANIMATION -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <style>
-        /* --- 1. CORE STYLES --- */
-        :root {
-            --bg: #0a0a0a;
-            --surface: #141414;
-            --text-main: #ffffff;
-            --text-muted: #a1a1a1;
-            --accent: #2997FF; /* Corporate Blue */
-            --imdb: #F5C518;   /* IMDb Gold */
-        }
-        
+        :root { --bg: #050505; --accent: #2997FF; --text: #fff; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body {
-            background-color: var(--bg);
-            color: var(--text-main);
-            font-family: 'Manrope', sans-serif;
-            overflow-x: hidden;
-            line-height: 1.6;
-        }
-
+        body { background: var(--bg); color: var(--text); font-family: 'Manrope', sans-serif; overflow-x: hidden; }
         a { text-decoration: none; color: white; transition: 0.3s; }
 
-        /* --- 2. HERO SECTION (SHOWREEL FOCUS) --- */
-        .hero {
-            height: 100vh;
-            width: 100%;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            overflow: hidden;
-        }
-
-        .video-bg {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            object-fit: cover;
-            opacity: 0.4;
-            z-index: 0;
-            filter: grayscale(100%) contrast(1.1); /* Professional Look */
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 900px;
-            padding: 0 20px;
-        }
-
-        .hero-title {
-            font-family: 'Anton', sans-serif;
-            font-size: 6rem;
-            text-transform: uppercase;
-            line-height: 1;
-            margin-bottom: 20px;
-            letter-spacing: 2px;
-        }
-
-        .hero-subtitle {
-            font-size: 1.5rem;
-            color: var(--text-muted);
-            margin-bottom: 40px;
-            font-weight: 300;
-            letter-spacing: 1px;
-        }
-
-        .hero-btn {
-            padding: 15px 40px;
-            border: 1px solid white;
-            color: white;
-            text-transform: uppercase;
-            font-weight: 700;
-            letter-spacing: 2px;
-            display: inline-block;
-        }
+        /* HERO */
+        .hero { height: 90vh; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+        .video-bg { position: absolute; top:0; left:0; width:100%; height:100%; object-fit: cover; opacity: 0.5; z-index: -1; filter: grayscale(100%); }
+        .hero-content { text-align: center; z-index: 2; }
+        .hero h1 { font-family: 'Anton', sans-serif; font-size: 5rem; letter-spacing: 2px; line-height: 1; }
+        .hero-btn { padding: 15px 30px; border: 1px solid white; margin-top: 20px; display: inline-block; font-weight: 700; }
         .hero-btn:hover { background: white; color: black; }
 
-        /* --- 3. FEATURE FILM SECTION --- */
-        .feature-film {
-            background: var(--surface);
-            padding: 100px 5%;
-            border-bottom: 1px solid #333;
+        /* MOVIE LINK BUTTON (Top Right) */
+        .movie-link-fixed {
+            position: absolute; top: 30px; right: 30px;
+            background: #E50914; padding: 10px 20px; border-radius: 4px;
+            font-weight: bold; text-transform: uppercase; z-index: 100;
         }
+        .movie-link-fixed:hover { transform: scale(1.1); }
 
-        .film-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1.5fr 1fr; /* Video is larger */
-            gap: 60px;
-            align-items: center;
+        /* CLIENT LOGO TICKER (New Feature) */
+        .ticker-wrap {
+            width: 100%; overflow: hidden; background: #000; padding: 40px 0;
+            border-bottom: 1px solid #222; border-top: 1px solid #222;
         }
-
-        .film-video-wrapper {
-            position: relative;
-            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-            height: 0;
-            overflow: hidden;
-            border-radius: 8px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        .ticker { display: flex; width: fit-content; animation: ticker 20s linear infinite; }
+        .ticker:hover { animation-play-state: paused; } /* Pauses on hover */
+        
+        .logo-item {
+            font-size: 2rem; color: #555; margin: 0 50px;
+            transition: 0.3s; opacity: 0.4; display: flex; align-items: center; gap: 10px;
         }
+        .logo-item:hover { color: white; opacity: 1; transform: scale(1.1); text-shadow: 0 0 10px white; }
 
-        .film-video-wrapper iframe {
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            border: none;
-        }
+        @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-        .film-info h2 {
-            font-family: 'Anton', sans-serif;
-            font-size: 3rem;
-            margin-bottom: 10px;
-            color: white;
-        }
+        /* FILTER & GRID */
+        .filter-nav { padding: 50px 0; text-align: center; }
+        .filter-btn { background: transparent; border: 1px solid #333; color: #888; padding: 8px 20px; margin: 5px; cursor: pointer; border-radius: 20px; }
+        .filter-btn.active, .filter-btn:hover { background: white; color: black; }
+        
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 20px; max-width: 1400px; margin: 0 auto; padding: 0 20px 100px; }
+        .card { height: 250px; background: #111; position: relative; display: none; overflow: hidden; }
+        .card.show { display: block; animation: fade 0.5s; }
+        .card img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; opacity: 0.7; }
+        .card:hover img { transform: scale(1.1); opacity: 1; }
+        .card-info { position: absolute; bottom: 20px; left: 20px; }
 
-        .film-tag {
-            color: var(--accent);
-            font-weight: 700;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            letter-spacing: 1px;
-            margin-bottom: 20px;
-            display: block;
-        }
-
-        .film-desc {
-            color: var(--text-muted);
-            margin-bottom: 30px;
-            font-size: 1.1rem;
-        }
-
-        .film-actions {
-            display: flex;
-            gap: 15px;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .btn-imdb {
-            background: var(--imdb);
-            color: black;
-            padding: 12px 25px;
-            border-radius: 4px;
-            font-weight: 800;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .btn-imdb:hover { background: white; }
-
-        .social-link {
-            font-size: 1.5rem;
-            color: var(--text-muted);
-            padding: 10px;
-        }
-        .social-link:hover { color: white; transform: scale(1.1); }
-
-        /* --- 4. FILTER NAV --- */
-        .filter-nav {
-            padding: 50px 5% 20px 5%;
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .filter-btn {
-            background: transparent;
-            border: 1px solid #333;
-            color: #888;
-            padding: 10px 25px;
-            border-radius: 30px;
-            cursor: pointer;
-            font-family: 'Manrope', sans-serif;
-            font-weight: 600;
-            transition: 0.3s;
-        }
-
-        .filter-btn:hover, .filter-btn.active {
-            background: white;
-            color: black;
-            border-color: white;
-        }
-
-        /* --- 5. GRID --- */
-        .grid-container {
-            max-width: 1600px;
-            margin: 0 auto;
-            padding: 20px 5% 100px 5%;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 20px;
-        }
-
-        .project-card {
-            background: #111;
-            height: 250px;
-            position: relative;
-            overflow: hidden;
-            display: none; /* Hidden by default for filter */
-            border-radius: 6px;
-        }
-
-        .project-card.show { display: block; animation: fadeIn 0.5s; }
-
-        .project-img {
-            width: 100%; height: 100%;
-            object-fit: cover;
-            transition: 0.5s;
-            opacity: 0.7;
-        }
-
-        .project-card:hover .project-img { transform: scale(1.1); opacity: 1; }
-
-        .card-overlay {
-            position: absolute;
-            bottom: 0; left: 0; width: 100%;
-            padding: 20px;
-            background: linear-gradient(transparent, black);
-            transform: translateY(20px);
-            transition: 0.3s;
-            opacity: 0;
-        }
-
-        .project-card:hover .card-overlay { transform: translateY(0); opacity: 1; }
-
-        .card-title { font-weight: 700; font-size: 1.2rem; }
-        .card-cat { color: var(--accent); font-size: 0.8rem; text-transform: uppercase; }
-
-        /* --- MOBILE --- */
-        @media (max-width: 900px) {
-            .hero-title { font-size: 3.5rem; }
-            .film-container { grid-template-columns: 1fr; gap: 30px; }
-            .filter-nav { justify-content: flex-start; overflow-x: scroll; flex-wrap: nowrap; }
-        }
-
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fade { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body>
 
-    <!-- HERO SECTION: THE CORPORATE SHOWREEL -->
-    <header class="hero">
-        <!-- 1. EDIT HERE: Link to your clean, looping background video (Showreel) -->
-        <video class="video-bg" autoplay muted loop playsinline>
-            <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4" type="video/mp4">
-        </video>
+    <!-- Link to the Movie Page -->
+    <a href="movie.html" class="movie-link-fixed">
+        <i class="fa-solid fa-film"></i> View Feature Film
+    </a>
 
+    <!-- HERO -->
+    <header class="hero">
+        <!-- REPLACE with your Showreel URL -->
+        <video class="video-bg" autoplay muted loop playsinline><source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4"></video>
         <div class="hero-content" data-aos="fade-up">
-            <h1 class="hero-title">SUDHEER</h1>
-            <p class="hero-subtitle">DIRECTOR // MOTION // EDITING</p>
-            <!-- 2. EDIT HERE: Link to your Main Showreel on YouTube/Vimeo -->
-            <a href="YOUR_SHOWREEL_LINK" target="_blank" class="hero-btn">
-                <i class="fa-solid fa-play"></i> Watch 2025 Showreel
-            </a>
+            <h1>SUDHEER</h1>
+            <p style="letter-spacing: 3px; color: #aaa;">DIRECTOR // PRODUCER</p>
+            <a href="#work" class="hero-btn">See Selected Work</a>
         </div>
     </header>
 
-
-    <!-- FEATURE SECTION: THE MOVIE -->
-    <section class="feature-film">
-        <div class="film-container">
-            
-            <!-- LEFT: The Trailer Embed -->
-            <div class="film-video-wrapper" data-aos="fade-right">
-                <!-- 3. EDIT HERE: Replace with your Movie Trailer Embed Code -->
-                <!-- Go to YouTube video -> Share -> Embed -> Copy the src URL only or the whole iframe -->
-                <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" title="Movie Trailer" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-
-            <!-- RIGHT: The Details -->
-            <div class="film-info" data-aos="fade-left">
-                <span class="film-tag">Feature Film Presentation</span>
-                
-                <!-- 4. EDIT HERE: Movie Details -->
-                <h2>TITLE OF YOUR MOVIE</h2>
-                <p class="film-desc">
-                    A gripping tale of resilience and discovery. Shot on location in India, 
-                    this film explores the human connection in a digital age. 
-                    Directed, Edited, and Color Graded by Sudheer.
-                </p>
-
-                <div class="film-actions">
-                    <!-- IMDb Link -->
-                    <a href="YOUR_IMDB_LINK" target="_blank" class="btn-imdb">
-                        <i class="fa-brands fa-imdb" style="font-size: 1.5rem;"></i> View on IMDb
-                    </a>
-
-                    <!-- Social Links -->
-                    <a href="YOUR_INSTAGRAM" target="_blank" class="social-link"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="YOUR_LINKEDIN" target="_blank" class="social-link"><i class="fa-brands fa-linkedin"></i></a>
-                    <a href="YOUR_TWITTER" target="_blank" class="social-link"><i class="fa-brands fa-x-twitter"></i></a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- WORK SECTION: FILTERABLE GRID -->
-    <nav class="filter-nav">
-        <button class="filter-btn active" onclick="filterSelection('all')">All Work</button>
-        <button class="filter-btn" onclick="filterSelection('apple')">Apple | Localization</button>
-        <button class="filter-btn" onclick="filterSelection('corporate')">Corporate</button>
-        <button class="filter-btn" onclick="filterSelection('music')">Music Videos</button>
-        <button class="filter-btn" onclick="filterSelection('ai')">AI & Workflow</button>
-        <button class="filter-btn" onclick="filterSelection('production')">Production</button>
-    </nav>
-
-    <div class="grid-container">
-        <div class="grid">
-            
-            <!-- === PASTE YOUR VIDEOS BELOW === -->
-            <!-- Remember to set the correct data-category -->
-
-            <!-- APPLE EXAMPLE -->
-            <a href="LINK" target="_blank" class="project-card show" data-category="apple">
-                <img src="https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?auto=format&fit=crop&w=800&q=80" class="project-img">
-                <div class="card-overlay">
-                    <p class="card-cat">Localization</p>
-                    <h3 class="card-title">Apple Project Name</h3>
-                </div>
-            </a>
-
-             <!-- CORPORATE EXAMPLE -->
-             <a href="LINK" target="_blank" class="project-card show" data-category="corporate">
-                <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=800&q=80" class="project-img">
-                <div class="card-overlay">
-                    <p class="card-cat">Corporate Film</p>
-                    <h3 class="card-title">Brand Commercial</h3>
-                </div>
-            </a>
-
-            <!-- MUSIC VIDEO EXAMPLE -->
-            <a href="LINK" target="_blank" class="project-card show" data-category="music">
-                <img src="https://images.unsplash.com/photo-1514525253440-b393452e8d26?auto=format&fit=crop&w=800&q=80" class="project-img">
-                <div class="card-overlay">
-                    <p class="card-cat">Music Video</p>
-                    <h3 class="card-title">Artist - Song Name</h3>
-                </div>
-            </a>
-
-             <!-- AI EXAMPLE -->
-             <a href="LINK" target="_blank" class="project-card show" data-category="ai">
-                <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=800&q=80" class="project-img">
-                <div class="card-overlay">
-                    <p class="card-cat">Stable Diffusion</p>
-                    <h3 class="card-title">AI Workflow Test</h3>
-                </div>
-            </a>
-
+    <!-- CLIENT LOGOS (Infinite Scroll) -->
+    <div class="ticker-wrap">
+        <div class="ticker">
+            <!-- PASTE YOUR CLIENT LOGO IMAGES HERE INSTEAD OF ICONS IF YOU HAVE THEM -->
+            <!-- Duplicate the list to make the loop seamless -->
+            <div class="logo-item"><i class="fa-brands fa-apple"></i> Apple</div>
+            <div class="logo-item"><i class="fa-brands fa-google"></i> Google</div>
+            <div class="logo-item"><i class="fa-brands fa-amazon"></i> Amazon</div>
+            <div class="logo-item"><i class="fa-brands fa-spotify"></i> Spotify</div>
+            <div class="logo-item"><i class="fa-solid fa-building"></i> Corporate</div>
+            <div class="logo-item"><i class="fa-solid fa-video"></i> Media Corp</div>
+            <!-- REPEAT SAME LIST for seamless loop -->
+            <div class="logo-item"><i class="fa-brands fa-apple"></i> Apple</div>
+            <div class="logo-item"><i class="fa-brands fa-google"></i> Google</div>
+            <div class="logo-item"><i class="fa-brands fa-amazon"></i> Amazon</div>
+            <div class="logo-item"><i class="fa-brands fa-spotify"></i> Spotify</div>
+            <div class="logo-item"><i class="fa-solid fa-building"></i> Corporate</div>
+            <div class="logo-item"><i class="fa-solid fa-video"></i> Media Corp</div>
         </div>
     </div>
 
-    <!-- FOOTER -->
-    <footer style="text-align: center; padding: 50px; color: #555; border-top: 1px solid #222;">
-        <p>&copy; 2025 SUDHEER. All Rights Reserved.</p>
-        <div style="margin-top: 10px; font-size: 1.2rem;">
-            <a href="#" style="color:#555; margin: 0 10px;"><i class="fa-brands fa-linkedin"></i></a>
-            <a href="#" style="color:#555; margin: 0 10px;"><i class="fa-envelope"></i></a>
-        </div>
-    </footer>
+    <!-- WORK GRID -->
+    <div id="work">
+        <nav class="filter-nav">
+            <button class="filter-btn active" onclick="filterSelection('all')">All</button>
+            <button class="filter-btn" onclick="filterSelection('apple')">Apple</button>
+            <button class="filter-btn" onclick="filterSelection('corporate')">Corporate</button>
+            <button class="filter-btn" onclick="filterSelection('music')">Music Videos</button>
+        </nav>
 
-    <!-- SCRIPTS -->
+        <div class="grid">
+            <!-- ADD YOUR VIDEO CARDS HERE (Same as previous code) -->
+            <a href="#" class="card show" data-category="apple">
+                <img src="https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?auto=format&fit=crop&w=800&q=80">
+                <div class="card-info"><h3>Apple Project</h3></div>
+            </a>
+            <a href="#" class="card show" data-category="music">
+                <img src="https://images.unsplash.com/photo-1514525253440-b393452e8d26?auto=format&fit=crop&w=800&q=80">
+                <div class="card-info"><h3>Music Video</h3></div>
+            </a>
+             <a href="#" class="card show" data-category="corporate">
+                <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=800&q=80">
+                <div class="card-info"><h3>Corporate Ad</h3></div>
+            </a>
+        </div>
+    </div>
+
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init();
-
         function filterSelection(c) {
-            var x = document.getElementsByClassName("project-card");
+            var x = document.getElementsByClassName("card");
             var btns = document.getElementsByClassName("filter-btn");
-
-            // Update active button
             for (var i = 0; i < btns.length; i++) {
                 btns[i].classList.remove("active");
-                if (btns[i].textContent.toLowerCase().includes(c) || (c === 'all' && btns[i].textContent === 'All Work')) {
-                    btns[i].classList.add("active");
-                }
+                if(btns[i].innerText.toLowerCase().includes(c) || c=='all') btns[i].classList.add("active");
             }
-            if (c === 'apple') btns[1].classList.add("active"); // Fallback for complex text
-
             if (c == "all") c = "";
             for (var i = 0; i < x.length; i++) {
-                x[i].classList.remove("show");
-                x[i].style.display = "none";
+                x[i].classList.remove("show"); x[i].style.display = "none";
                 if (x[i].getAttribute("data-category").indexOf(c) > -1) {
-                    x[i].style.display = "block";
-                    setTimeout((el) => el.classList.add("show"), 10, x[i]);
+                    x[i].style.display = "block"; setTimeout((el)=>el.classList.add("show"),10,x[i]);
                 }
             }
         }
-        
-        // Initial Trigger
-        filterSelection('all');
     </script>
 </body>
 </html>
-
