@@ -7,21 +7,19 @@
     
     <!-- ICONS & FONTS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@300;400;600;700&display=swap" rel="stylesheet">
     <!-- ANIMATION -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <style>
-        /* --- 1. CINEMATIC THEME --- */
+        /* --- 1. CORE STYLES --- */
         :root {
-            --bg: #050505;
-            --card-bg: #121212;
+            --bg: #0a0a0a;
+            --surface: #141414;
             --text-main: #ffffff;
-            --text-muted: #888888;
-            --accent: #E50914; /* Netflix Red for Movie */
-            --apple: #2997FF; /* Apple Blue */
-            --ai: #00E5FF; /* Cyan for AI */
-            --corp: #FFD700; /* Gold for Corporate */
+            --text-muted: #a1a1a1;
+            --accent: #2997FF; /* Corporate Blue */
+            --imdb: #F5C518;   /* IMDb Gold */
         }
         
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -31,387 +29,387 @@
             color: var(--text-main);
             font-family: 'Manrope', sans-serif;
             overflow-x: hidden;
-        }
-
-        /* --- 2. HERO: THE FULL LENGTH MOVIE --- */
-        .movie-hero {
-            height: 90vh;
-            width: 100%;
-            position: relative;
-            display: flex;
-            align-items: flex-end; /* Text at bottom like Netflix */
-            padding-bottom: 80px;
-            padding-left: 5%;
-            overflow: hidden;
-        }
-
-        .movie-bg {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            object-fit: cover;
-            opacity: 0.6;
-            mask-image: linear-gradient(to bottom, black 50%, transparent 100%); /* Fade out bottom */
-            -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
-            z-index: 0;
-            transition: transform 10s ease;
-        }
-        
-        .movie-hero:hover .movie-bg { transform: scale(1.05); }
-
-        .movie-content {
-            position: relative;
-            z-index: 2;
-            max-width: 800px;
-        }
-
-        .tag-pill {
-            background: var(--accent);
-            color: white;
-            padding: 5px 10px;
-            font-weight: bold;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            border-radius: 4px;
-            margin-bottom: 15px;
-            display: inline-block;
-        }
-
-        .movie-title {
-            font-family: 'Anton', sans-serif;
-            font-size: 5rem;
-            line-height: 1;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            text-shadow: 0 0 30px rgba(0,0,0,0.8);
-        }
-
-        .movie-desc {
-            font-size: 1.2rem;
-            color: #ddd;
-            margin-bottom: 30px;
-            max-width: 600px;
             line-height: 1.6;
         }
 
-        .btn-watch {
+        a { text-decoration: none; color: white; transition: 0.3s; }
+
+        /* --- 2. HERO SECTION (SHOWREEL FOCUS) --- */
+        .hero {
+            height: 100vh;
+            width: 100%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .video-bg {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            object-fit: cover;
+            opacity: 0.4;
+            z-index: 0;
+            filter: grayscale(100%) contrast(1.1); /* Professional Look */
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            padding: 0 20px;
+        }
+
+        .hero-title {
+            font-family: 'Anton', sans-serif;
+            font-size: 6rem;
+            text-transform: uppercase;
+            line-height: 1;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .hero-btn {
             padding: 15px 40px;
-            background: white;
-            color: black;
+            border: 1px solid white;
+            color: white;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 2px;
+            display: inline-block;
+        }
+        .hero-btn:hover { background: white; color: black; }
+
+        /* --- 3. FEATURE FILM SECTION --- */
+        .feature-film {
+            background: var(--surface);
+            padding: 100px 5%;
+            border-bottom: 1px solid #333;
+        }
+
+        .film-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.5fr 1fr; /* Video is larger */
+            gap: 60px;
+            align-items: center;
+        }
+
+        .film-video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+
+        .film-video-wrapper iframe {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            border: none;
+        }
+
+        .film-info h2 {
+            font-family: 'Anton', sans-serif;
+            font-size: 3rem;
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        .film-tag {
+            color: var(--accent);
             font-weight: 700;
             text-transform: uppercase;
-            text-decoration: none;
-            border-radius: 4px;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            transition: 0.3s;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            display: block;
         }
-        .btn-watch:hover { background: var(--accent); color: white; }
 
-        /* --- 3. FILTER NAVIGATION --- */
-        .filter-nav {
-            position: sticky;
-            top: 0;
-            background: rgba(5,5,5,0.95);
-            backdrop-filter: blur(10px);
-            z-index: 100;
-            padding: 20px 5%;
+        .film-desc {
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+
+        .film-actions {
             display: flex;
             gap: 15px;
-            overflow-x: auto; /* Scrollable on mobile */
-            border-bottom: 1px solid #222;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-imdb {
+            background: var(--imdb);
+            color: black;
+            padding: 12px 25px;
+            border-radius: 4px;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .btn-imdb:hover { background: white; }
+
+        .social-link {
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            padding: 10px;
+        }
+        .social-link:hover { color: white; transform: scale(1.1); }
+
+        /* --- 4. FILTER NAV --- */
+        .filter-nav {
+            padding: 50px 5% 20px 5%;
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
         }
 
         .filter-btn {
             background: transparent;
             border: 1px solid #333;
             color: #888;
-            padding: 10px 20px;
+            padding: 10px 25px;
             border-radius: 30px;
             cursor: pointer;
-            white-space: nowrap;
             font-family: 'Manrope', sans-serif;
             font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 8px;
             transition: 0.3s;
         }
 
-        .filter-btn i { font-size: 0.9rem; }
-        .filter-btn:hover { color: white; border-color: white; }
-        
-        .filter-btn.active {
+        .filter-btn:hover, .filter-btn.active {
             background: white;
             color: black;
             border-color: white;
         }
 
-        /* --- 4. GRID LAYOUT --- */
-        .gallery-container {
-            padding: 50px 5%;
-            min-height: 100vh;
+        /* --- 5. GRID --- */
+        .grid-container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 20px 5% 100px 5%;
         }
-
-        .category-header {
-            margin-bottom: 30px;
-            display: none; /* Hidden by default, JS shows it */
-        }
-        .category-header.show { display: block; animation: fadeIn 0.5s; }
-
-        .cat-title { font-family: 'Anton', sans-serif; font-size: 2.5rem; text-transform: uppercase; }
-        .cat-subtitle { color: var(--text-muted); font-size: 1rem; margin-top: 5px; }
 
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 25px;
+            gap: 20px;
         }
 
         .project-card {
-            background: var(--card-bg);
-            border-radius: 8px;
-            overflow: hidden;
-            text-decoration: none;
-            color: white;
-            transition: 0.4s ease;
-            display: none; /* Hidden for filtering */
-            border: 1px solid #222;
-        }
-
-        .project-card.show { display: block; animation: fadeInUp 0.6s ease; }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-            border-color: #444;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-        }
-
-        .thumb-container {
+            background: #111;
+            height: 250px;
             position: relative;
-            height: 200px;
             overflow: hidden;
+            display: none; /* Hidden by default for filter */
+            border-radius: 6px;
         }
 
-        .thumb-img {
+        .project-card.show { display: block; animation: fadeIn 0.5s; }
+
+        .project-img {
             width: 100%; height: 100%;
             object-fit: cover;
             transition: 0.5s;
+            opacity: 0.7;
         }
 
-        .project-card:hover .thumb-img { transform: scale(1.1); opacity: 0.8; }
+        .project-card:hover .project-img { transform: scale(1.1); opacity: 1; }
 
-        .card-icon {
+        .card-overlay {
             position: absolute;
-            top: 10px; right: 10px;
-            background: rgba(0,0,0,0.7);
-            padding: 8px;
-            border-radius: 50%;
-            font-size: 0.8rem;
+            bottom: 0; left: 0; width: 100%;
+            padding: 20px;
+            background: linear-gradient(transparent, black);
+            transform: translateY(20px);
+            transition: 0.3s;
+            opacity: 0;
         }
 
-        .info { padding: 20px; }
-        .p-title { font-weight: 700; font-size: 1.1rem; margin-bottom: 5px; }
-        .p-desc { color: #666; font-size: 0.85rem; }
+        .project-card:hover .card-overlay { transform: translateY(0); opacity: 1; }
 
-        /* --- ANIMATIONS --- */
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .card-title { font-weight: 700; font-size: 1.2rem; }
+        .card-cat { color: var(--accent); font-size: 0.8rem; text-transform: uppercase; }
 
-        /* Mobile */
-        @media (max-width: 768px) {
-            .movie-title { font-size: 3rem; }
-            .grid { grid-template-columns: 1fr; }
+        /* --- MOBILE --- */
+        @media (max-width: 900px) {
+            .hero-title { font-size: 3.5rem; }
+            .film-container { grid-template-columns: 1fr; gap: 30px; }
+            .filter-nav { justify-content: flex-start; overflow-x: scroll; flex-wrap: nowrap; }
         }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body>
 
-    <!-- SECTION 1: THE FULL LENGTH MOVIE (HERO) -->
-    <header class="movie-hero">
-        <!-- REPLACE WITH YOUR MOVIE POSTER IMAGE -->
-        <img src="https://images.unsplash.com/photo-1478720568477-152d9b164e63?auto=format&fit=crop&w=1600&q=80" class="movie-bg" alt="Movie Poster">
-        
-        <div class="movie-content" data-aos="fade-up">
-            <span class="tag-pill">Feature Film</span>
-            <h1 class="movie-title">TITLE OF YOUR MOVIE</h1>
-            <p class="movie-desc">
-                A cinematic journey exploring the depth of human emotion. 
-                Full length feature film produced and directed by Sudheer.
-                (Replace this text with your movie logline).
-            </p>
-            <!-- PASTE MOVIE LINK HERE -->
-            <a href="LINK_TO_FULL_MOVIE" class="btn-watch"><i class="fa-solid fa-play"></i> Watch Now</a>
+    <!-- HERO SECTION: THE CORPORATE SHOWREEL -->
+    <header class="hero">
+        <!-- 1. EDIT HERE: Link to your clean, looping background video (Showreel) -->
+        <video class="video-bg" autoplay muted loop playsinline>
+            <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4" type="video/mp4">
+        </video>
+
+        <div class="hero-content" data-aos="fade-up">
+            <h1 class="hero-title">SUDHEER</h1>
+            <p class="hero-subtitle">DIRECTOR // MOTION // EDITING</p>
+            <!-- 2. EDIT HERE: Link to your Main Showreel on YouTube/Vimeo -->
+            <a href="YOUR_SHOWREEL_LINK" target="_blank" class="hero-btn">
+                <i class="fa-solid fa-play"></i> Watch 2025 Showreel
+            </a>
         </div>
     </header>
 
-    <!-- SECTION 2: FILTER NAVIGATION -->
-    <nav class="filter-nav">
-        <button class="filter-btn active" onclick="filterSelection('all')">
-            <i class="fa-solid fa-layer-group"></i> All Work
-        </button>
-        <button class="filter-btn" onclick="filterSelection('apple')">
-            <i class="fa-brands fa-apple"></i> Apple | Localization
-        </button>
-        <button class="filter-btn" onclick="filterSelection('music')">
-            <i class="fa-solid fa-music"></i> Music Videos
-        </button>
-        <button class="filter-btn" onclick="filterSelection('corporate')">
-            <i class="fa-solid fa-building"></i> Corporate
-        </button>
-        <button class="filter-btn" onclick="filterSelection('ai')">
-            <i class="fa-solid fa-robot"></i> AI & Workflow
-        </button>
-        <button class="filter-btn" onclick="filterSelection('production')">
-            <i class="fa-solid fa-video"></i> Production
-        </button>
-        <button class="filter-btn" onclick="filterSelection('3d')">
-            <i class="fa-solid fa-cube"></i> 3D & VFX
-        </button>
-    </nav>
 
-    <!-- SECTION 3: THE WORK GRID -->
-    <section class="gallery-container">
-
-        <!-- Category Headers (Change dynamically) -->
-        <div class="category-header show" id="header-all">
-            <h2 class="cat-title">Complete Filmography</h2>
-            <p class="cat-subtitle">A collection of visual storytelling across all formats.</p>
-        </div>
-
-        <div class="grid">
+    <!-- FEATURE SECTION: THE MOVIE -->
+    <section class="feature-film">
+        <div class="film-container">
             
-            <!-- === CATEGORY: APPLE (14 Items) === -->
-            <!-- Item 1 -->
-            <a href="YOUR_LINK_HERE" class="project-card show" data-category="apple">
-                <div class="thumb-container">
-                    <img src="https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?auto=format&fit=crop&w=800&q=80" class="thumb-img">
-                    <div class="card-icon" style="color:var(--apple)"><i class="fa-brands fa-apple"></i></div>
-                </div>
-                <div class="info">
-                    <h3 class="p-title">Apple Localization 01</h3>
-                    <p class="p-desc">Precision adaptation for global markets.</p>
-                </div>
-            </a>
-            <!-- COPY THE BLOCK ABOVE 13 MORE TIMES FOR APPLE VIDEOS -->
+            <!-- LEFT: The Trailer Embed -->
+            <div class="film-video-wrapper" data-aos="fade-right">
+                <!-- 3. EDIT HERE: Replace with your Movie Trailer Embed Code -->
+                <!-- Go to YouTube video -> Share -> Embed -> Copy the src URL only or the whole iframe -->
+                <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" title="Movie Trailer" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
 
+            <!-- RIGHT: The Details -->
+            <div class="film-info" data-aos="fade-left">
+                <span class="film-tag">Feature Film Presentation</span>
+                
+                <!-- 4. EDIT HERE: Movie Details -->
+                <h2>TITLE OF YOUR MOVIE</h2>
+                <p class="film-desc">
+                    A gripping tale of resilience and discovery. Shot on location in India, 
+                    this film explores the human connection in a digital age. 
+                    Directed, Edited, and Color Graded by Sudheer.
+                </p>
 
-            <!-- === CATEGORY: AI & EXPERIMENTS === -->
-            <a href="YOUR_LINK_HERE" class="project-card show" data-category="ai">
-                <div class="thumb-container">
-                    <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=800&q=80" class="thumb-img">
-                    <div class="card-icon" style="color:var(--ai)"><i class="fa-solid fa-robot"></i></div>
-                </div>
-                <div class="info">
-                    <h3 class="p-title">Stable Diffusion Workflow</h3>
-                    <p class="p-desc">Pushing boundaries of generative imagery.</p>
-                </div>
-            </a>
+                <div class="film-actions">
+                    <!-- IMDb Link -->
+                    <a href="YOUR_IMDB_LINK" target="_blank" class="btn-imdb">
+                        <i class="fa-brands fa-imdb" style="font-size: 1.5rem;"></i> View on IMDb
+                    </a>
 
-
-            <!-- === CATEGORY: MUSIC VIDEOS (10 Items) === -->
-            <a href="YOUR_LINK_HERE" class="project-card show" data-category="music">
-                <div class="thumb-container">
-                    <img src="https://images.unsplash.com/photo-1514525253440-b393452e8d26?auto=format&fit=crop&w=800&q=80" class="thumb-img">
-                    <div class="card-icon"><i class="fa-solid fa-music"></i></div>
+                    <!-- Social Links -->
+                    <a href="YOUR_INSTAGRAM" target="_blank" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="YOUR_LINKEDIN" target="_blank" class="social-link"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="YOUR_TWITTER" target="_blank" class="social-link"><i class="fa-brands fa-x-twitter"></i></a>
                 </div>
-                <div class="info">
-                    <h3 class="p-title">Music Video Name</h3>
-                    <p class="p-desc">Rhythm and visuals in perfect sync.</p>
-                </div>
-            </a>
-
-
-            <!-- === CATEGORY: CORPORATE (6 Items) === -->
-            <a href="YOUR_LINK_HERE" class="project-card show" data-category="corporate">
-                <div class="thumb-container">
-                    <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=800&q=80" class="thumb-img">
-                    <div class="card-icon" style="color:var(--corp)"><i class="fa-solid fa-building"></i></div>
-                </div>
-                <div class="info">
-                    <h3 class="p-title">Brand Storytelling</h3>
-                    <p class="p-desc">High-impact corporate communication.</p>
-                </div>
-            </a>
-
-            <!-- === CATEGORY: 3D RENDERS === -->
-            <a href="YOUR_LINK_HERE" class="project-card show" data-category="3d">
-                <div class="thumb-container">
-                    <img src="https://images.unsplash.com/photo-1633419461186-7d75076e5360?auto=format&fit=crop&w=800&q=80" class="thumb-img">
-                    <div class="card-icon"><i class="fa-solid fa-cube"></i></div>
-                </div>
-                <div class="info">
-                    <h3 class="p-title">3D Environment</h3>
-                    <p class="p-desc">Blender / C4D Renders.</p>
-                </div>
-            </a>
-
-            <!-- === CATEGORY: PRODUCTION === -->
-            <a href="YOUR_LINK_HERE" class="project-card show" data-category="production">
-                <div class="thumb-container">
-                    <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=800&q=80" class="thumb-img">
-                    <div class="card-icon"><i class="fa-solid fa-video"></i></div>
-                </div>
-                <div class="info">
-                    <h3 class="p-title">On-Set Production</h3>
-                    <p class="p-desc">Behind the scenes and production logs.</p>
-                </div>
-            </a>
-
+            </div>
         </div>
     </section>
+
+
+    <!-- WORK SECTION: FILTERABLE GRID -->
+    <nav class="filter-nav">
+        <button class="filter-btn active" onclick="filterSelection('all')">All Work</button>
+        <button class="filter-btn" onclick="filterSelection('apple')">Apple | Localization</button>
+        <button class="filter-btn" onclick="filterSelection('corporate')">Corporate</button>
+        <button class="filter-btn" onclick="filterSelection('music')">Music Videos</button>
+        <button class="filter-btn" onclick="filterSelection('ai')">AI & Workflow</button>
+        <button class="filter-btn" onclick="filterSelection('production')">Production</button>
+    </nav>
+
+    <div class="grid-container">
+        <div class="grid">
+            
+            <!-- === PASTE YOUR VIDEOS BELOW === -->
+            <!-- Remember to set the correct data-category -->
+
+            <!-- APPLE EXAMPLE -->
+            <a href="LINK" target="_blank" class="project-card show" data-category="apple">
+                <img src="https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?auto=format&fit=crop&w=800&q=80" class="project-img">
+                <div class="card-overlay">
+                    <p class="card-cat">Localization</p>
+                    <h3 class="card-title">Apple Project Name</h3>
+                </div>
+            </a>
+
+             <!-- CORPORATE EXAMPLE -->
+             <a href="LINK" target="_blank" class="project-card show" data-category="corporate">
+                <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=800&q=80" class="project-img">
+                <div class="card-overlay">
+                    <p class="card-cat">Corporate Film</p>
+                    <h3 class="card-title">Brand Commercial</h3>
+                </div>
+            </a>
+
+            <!-- MUSIC VIDEO EXAMPLE -->
+            <a href="LINK" target="_blank" class="project-card show" data-category="music">
+                <img src="https://images.unsplash.com/photo-1514525253440-b393452e8d26?auto=format&fit=crop&w=800&q=80" class="project-img">
+                <div class="card-overlay">
+                    <p class="card-cat">Music Video</p>
+                    <h3 class="card-title">Artist - Song Name</h3>
+                </div>
+            </a>
+
+             <!-- AI EXAMPLE -->
+             <a href="LINK" target="_blank" class="project-card show" data-category="ai">
+                <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=800&q=80" class="project-img">
+                <div class="card-overlay">
+                    <p class="card-cat">Stable Diffusion</p>
+                    <h3 class="card-title">AI Workflow Test</h3>
+                </div>
+            </a>
+
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer style="text-align: center; padding: 50px; color: #555; border-top: 1px solid #222;">
+        <p>&copy; 2025 SUDHEER. All Rights Reserved.</p>
+        <div style="margin-top: 10px; font-size: 1.2rem;">
+            <a href="#" style="color:#555; margin: 0 10px;"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="#" style="color:#555; margin: 0 10px;"><i class="fa-envelope"></i></a>
+        </div>
+    </footer>
 
     <!-- SCRIPTS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init();
 
-        // FILTERING LOGIC
         function filterSelection(c) {
-            var x, i;
-            x = document.getElementsByClassName("project-card");
+            var x = document.getElementsByClassName("project-card");
             var btns = document.getElementsByClassName("filter-btn");
 
-            // 1. Manage Buttons Active State
-            for (var b = 0; b < btns.length; b++) {
-                btns[b].classList.remove("active");
-                if (btns[b].getAttribute("onclick").includes(c)) {
-                    btns[b].classList.add("active");
+            // Update active button
+            for (var i = 0; i < btns.length; i++) {
+                btns[i].classList.remove("active");
+                if (btns[i].textContent.toLowerCase().includes(c) || (c === 'all' && btns[i].textContent === 'All Work')) {
+                    btns[i].classList.add("active");
                 }
             }
+            if (c === 'apple') btns[1].classList.add("active"); // Fallback for complex text
 
-            // 2. Show/Hide Cards
             if (c == "all") c = "";
-            for (i = 0; i < x.length; i++) {
+            for (var i = 0; i < x.length; i++) {
                 x[i].classList.remove("show");
-                if (x[i].className.indexOf(c) > -1) {
-                    // Small delay for animation effect
-                    setTimeout((el) => el.classList.add("show"), 50, x[i]); 
+                x[i].style.display = "none";
+                if (x[i].getAttribute("data-category").indexOf(c) > -1) {
+                    x[i].style.display = "block";
+                    setTimeout((el) => el.classList.add("show"), 10, x[i]);
                 }
             }
-
-            // 3. Update Text Header (Optional Polish)
-            const titles = {
-                'apple': ['Apple Localization', 'Precision work for the global ecosystem.'],
-                'music': ['Music Videos', 'Visualizing soundscapes.'],
-                'corporate': ['Corporate Films', 'Professional storytelling for brands.'],
-                'ai': ['AI Experiments', 'Exploring the future of generative video.'],
-                'production': ['Video Production', 'From concept to final cut.'],
-                '3d': ['3D & CGI', 'Digital environments and assets.'],
-                'all': ['Complete Filmography', 'A collection of visual storytelling.']
-            };
-            
-            let key = (c === "") ? "all" : c;
-            let titleEl = document.querySelector('.cat-title');
-            let subEl = document.querySelector('.cat-subtitle');
-            
-            titleEl.style.opacity = 0;
-            setTimeout(() => {
-                titleEl.innerText = titles[key][0];
-                subEl.innerText = titles[key][1];
-                titleEl.style.opacity = 1;
-            }, 300);
         }
+        
+        // Initial Trigger
+        filterSelection('all');
     </script>
 </body>
 </html>
