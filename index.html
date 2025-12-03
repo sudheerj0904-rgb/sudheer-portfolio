@@ -3,146 +3,565 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SUDHEER | Visual Director</title>
+    <title>SUDHEER J | Visual Director & Storyteller</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@400;600&family=Manrope:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <style>
-        :root { --bg: #050505; --accent: #2997FF; --text: #fff; }
+        :root { 
+            --bg: #050505; 
+            --accent: #2997FF; 
+            --text: #fff; 
+            --card-bg: #0a0a0a;
+            --border: #1a1a1a;
+        }
+        
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background: var(--bg); color: var(--text); font-family: 'Manrope', sans-serif; overflow-x: hidden; }
-        a { text-decoration: none; color: white; transition: 0.3s; }
+        
+        body { 
+            background: var(--bg); 
+            color: var(--text); 
+            font-family: 'Manrope', sans-serif; 
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+        
+        a { 
+            text-decoration: none; 
+            color: white; 
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
 
         /* HERO */
-        .hero { height: 90vh; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
-        .video-bg { position: absolute; top:0; left:0; width:100%; height:100%; object-fit: cover; opacity: 0.5; z-index: -1; filter: grayscale(100%); }
-        .hero-content { text-align: center; z-index: 2; }
-        .hero h1 { font-family: 'Anton', sans-serif; font-size: 5rem; letter-spacing: 2px; line-height: 1; }
-        .hero-btn { padding: 15px 30px; border: 1px solid white; margin-top: 20px; display: inline-block; font-weight: 700; }
-        .hero-btn:hover { background: white; color: black; }
+        .hero { 
+            height: 100vh; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            position: relative; 
+            overflow: hidden;
+        }
+        
+        .video-bg { 
+            position: absolute; 
+            top: 50%; 
+            left: 50%; 
+            min-width: 100%; 
+            min-height: 100%; 
+            width: auto; 
+            height: auto; 
+            transform: translate(-50%, -50%);
+            object-fit: cover; 
+            opacity: 0.35; 
+            z-index: 0; 
+            filter: grayscale(100%) contrast(1.2);
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(ellipse at center, transparent 0%, rgba(5,5,5,0.8) 100%);
+            z-index: 1;
+            pointer-events: none;
+        }
+        
+        .hero-content { 
+            text-align: center; 
+            z-index: 2; 
+            position: relative;
+        }
+        
+        .hero h1 { 
+            font-family: 'Anton', sans-serif; 
+            font-size: clamp(3rem, 10vw, 7rem);
+            letter-spacing: 8px; 
+            line-height: 0.9;
+            text-transform: uppercase;
+            background: linear-gradient(180deg, #fff 0%, #888 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+        
+        .hero p {
+            font-family: 'Oswald', sans-serif;
+            letter-spacing: 6px; 
+            color: #666;
+            font-size: clamp(0.8rem, 2vw, 1rem);
+            font-weight: 400;
+            margin-bottom: 30px;
+        }
+        
+        .hero-btn { 
+            padding: 16px 40px; 
+            border: 1px solid rgba(255,255,255,0.3); 
+            display: inline-block; 
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            background: rgba(255,255,255,0.05);
+        }
+        
+        .hero-btn::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: white;
+            transition: left 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: -1;
+        }
+        
+        .hero-btn:hover::before { left: 0; }
+        .hero-btn:hover { color: black; border-color: white; }
 
-        /* MOVIE LINK BUTTON (Top Right) */
+        /* MOVIE LINK BUTTON */
         .movie-link-fixed {
-            position: absolute; top: 30px; right: 30px;
-            background: #E50914; padding: 10px 20px; border-radius: 4px;
-            font-weight: bold; text-transform: uppercase; z-index: 100;
+            position: fixed; 
+            top: 30px; 
+            right: 30px;
+            background: #E50914; 
+            padding: 12px 24px; 
+            border-radius: 4px;
+            font-weight: 700; 
+            text-transform: uppercase; 
+            z-index: 1000;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 20px rgba(229, 9, 20, 0.4);
+            transition: all 0.3s ease;
         }
-        .movie-link-fixed:hover { transform: scale(1.1); }
+        
+        .movie-link-fixed:hover { 
+            transform: translateY(-2px); 
+            box-shadow: 0 6px 30px rgba(229, 9, 20, 0.6);
+        }
+        
+        .movie-link-fixed i { margin-right: 8px; }
 
-        /* CLIENT LOGO TICKER (New Feature) */
+        /* CLIENT LOGO TICKER */
         .ticker-wrap {
-            width: 100%; overflow: hidden; background: #000; padding: 40px 0;
-            border-bottom: 1px solid #222; border-top: 1px solid #222;
+            width: 100%; 
+            overflow: hidden; 
+            background: linear-gradient(180deg, #000 0%, #0a0a0a 100%);
+            padding: 60px 0;
+            border-bottom: 1px solid var(--border); 
+            border-top: 1px solid var(--border);
+            position: relative;
         }
-        .ticker { display: flex; width: fit-content; animation: ticker 20s linear infinite; }
-        .ticker:hover { animation-play-state: paused; } /* Pauses on hover */
+        
+        .ticker-wrap::before,
+        .ticker-wrap::after {
+            content: '';
+            position: absolute;
+            top: 0; bottom: 0;
+            width: 200px;
+            z-index: 2;
+            pointer-events: none;
+        }
+        
+        .ticker-wrap::before {
+            left: 0;
+            background: linear-gradient(90deg, #000 0%, transparent 100%);
+        }
+        
+        .ticker-wrap::after {
+            right: 0;
+            background: linear-gradient(270deg, #000 0%, transparent 100%);
+        }
+        
+        .ticker { 
+            display: flex; 
+            width: fit-content; 
+            animation: ticker 30s linear infinite;
+        }
+        
+        .ticker:hover { animation-play-state: paused; }
         
         .logo-item {
-            font-size: 2rem; color: #555; margin: 0 50px;
-            transition: 0.3s; opacity: 0.4; display: flex; align-items: center; gap: 10px;
+            font-size: 1.8rem; 
+            color: #333; 
+            margin: 0 60px;
+            transition: all 0.4s ease;
+            opacity: 0.5; 
+            display: flex; 
+            align-items: center; 
+            gap: 12px;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 600;
+            letter-spacing: 2px;
+            white-space: nowrap;
         }
-        .logo-item:hover { color: white; opacity: 1; transform: scale(1.1); text-shadow: 0 0 10px white; }
+        
+        .logo-item i { font-size: 2.2rem; }
+        
+        .logo-item:hover { 
+            color: white; 
+            opacity: 1; 
+            transform: scale(1.15); 
+            text-shadow: 0 0 20px rgba(255,255,255,0.5);
+        }
 
-        @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        @keyframes ticker { 
+            0% { transform: translateX(0); } 
+            100% { transform: translateX(-50%); } 
+        }
 
         /* FILTER & GRID */
-        .filter-nav { padding: 50px 0; text-align: center; }
-        .filter-btn { background: transparent; border: 1px solid #333; color: #888; padding: 8px 20px; margin: 5px; cursor: pointer; border-radius: 20px; }
-        .filter-btn.active, .filter-btn:hover { background: white; color: black; }
+        .filter-section {
+            padding: 80px 20px 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
         
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 20px; max-width: 1400px; margin: 0 auto; padding: 0 20px 100px; }
-        .card { height: 250px; background: #111; position: relative; display: none; overflow: hidden; }
-        .card.show { display: block; animation: fade 0.5s; }
-        .card img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; opacity: 0.7; }
-        .card:hover img { transform: scale(1.1); opacity: 1; }
-        .card-info { position: absolute; bottom: 20px; left: 20px; }
+        .filter-nav { 
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .filter-btn { 
+            background: transparent; 
+            border: 1px solid var(--border); 
+            color: #666; 
+            padding: 10px 24px; 
+            margin: 8px; 
+            cursor: pointer; 
+            border-radius: 30px;
+            font-family: 'Manrope', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+        
+        .filter-btn.active { 
+            background: white; 
+            color: black; 
+            border-color: white;
+            box-shadow: 0 4px 15px rgba(255,255,255,0.2);
+        }
+        
+        .filter-btn:hover { 
+            background: rgba(255,255,255,0.1); 
+            color: white;
+            border-color: rgba(255,255,255,0.3);
+        }
+        
+        /* GRID */
+        .grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); 
+            gap: 24px; 
+            padding-bottom: 100px;
+        }
+        
+        .card { 
+            height: 280px; 
+            background: var(--card-bg); 
+            position: relative; 
+            display: none; 
+            overflow: hidden;
+            border-radius: 4px;
+            border: 1px solid var(--border);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .card.show { 
+            display: block; 
+            animation: fadeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.8) 100%);
+            z-index: 1;
+            opacity: 0.6;
+            transition: opacity 0.4s ease;
+        }
+        
+        .card:hover::before { opacity: 0.9; }
+        
+        .card img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0.8;
+        }
+        
+        .card:hover img { 
+            transform: scale(1.08); 
+            opacity: 1;
+        }
+        
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.6);
+            border-color: rgba(255,255,255,0.1);
+        }
+        
+        .card-info { 
+            position: absolute; 
+            bottom: 24px; 
+            left: 24px; 
+            z-index: 2;
+            transition: transform 0.4s ease;
+        }
+        
+        .card:hover .card-info { transform: translateY(-4px); }
+        
+        .card-info h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+        
+        .card-info p {
+            font-size: 0.85rem;
+            color: #888;
+            letter-spacing: 0.5px;
+        }
 
-        @keyframes fade { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeIn { 
+            from { opacity: 0; transform: translateY(30px); } 
+            to { opacity: 1; transform: translateY(0); } 
+        }
+
+        /* MOBILE RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero { height: 80vh; }
+            .hero h1 { letter-spacing: 4px; }
+            .hero p { letter-spacing: 3px; }
+            .movie-link-fixed { top: 20px; right: 20px; padding: 10px 18px; font-size: 0.75rem; }
+            .ticker-wrap { padding: 40px 0; }
+            .logo-item { font-size: 1.4rem; margin: 0 40px; }
+            .logo-item i { font-size: 1.8rem; }
+            .filter-section { padding: 60px 15px 30px; }
+            .filter-btn { padding: 8px 18px; font-size: 0.8rem; margin: 5px; }
+            .grid { grid-template-columns: 1fr; gap: 20px; padding-bottom: 60px; }
+            .card { height: 240px; }
+            .card-info { bottom: 20px; left: 20px; }
+            .card-info h3 { font-size: 1.1rem; }
+        }
+
+        @media (max-width: 480px) {
+            .hero-btn { padding: 14px 30px; font-size: 0.8rem; }
+            .movie-link-fixed span { display: none; }
+            .movie-link-fixed i { margin-right: 0; }
+        }
     </style>
 </head>
 <body>
 
-    <!-- Link to the Movie Page -->
     <a href="movie.html" class="movie-link-fixed">
-        <i class="fa-solid fa-film"></i> View Feature Film
+        <i class="fa-solid fa-film"></i>
+        <span>View Feature Film</span>
     </a>
 
     <!-- HERO -->
     <header class="hero">
-        <!-- REPLACE with your Showreel URL -->
-        <video class="video-bg" autoplay muted loop playsinline><source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4"></video>
-        <div class="hero-content" data-aos="fade-up">
-            <h1>SUDHEER</h1>
-            <p style="letter-spacing: 3px; color: #aaa;">DIRECTOR // PRODUCER</p>
+        <video class="video-bg" autoplay muted loop playsinline>
+            <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4" type="video/mp4">
+        </video>
+        <div class="hero-content" data-aos="fade-up" data-aos-duration="1200">
+            <h1>SUDHEER J</h1>
+            <p>DIGITAL FILMMAKER // VISUAL STORYTELLER</p>
             <a href="#work" class="hero-btn">See Selected Work</a>
         </div>
     </header>
 
-    <!-- CLIENT LOGOS (Infinite Scroll) -->
+    <!-- CLIENT LOGOS -->
     <div class="ticker-wrap">
         <div class="ticker">
-            <!-- PASTE YOUR CLIENT LOGO IMAGES HERE INSTEAD OF ICONS IF YOU HAVE THEM -->
-            <!-- Duplicate the list to make the loop seamless -->
-            <div class="logo-item"><i class="fa-brands fa-apple"></i> Apple</div>
-            <div class="logo-item"><i class="fa-brands fa-google"></i> Google</div>
-            <div class="logo-item"><i class="fa-brands fa-amazon"></i> Amazon</div>
-            <div class="logo-item"><i class="fa-brands fa-spotify"></i> Spotify</div>
-            <div class="logo-item"><i class="fa-solid fa-building"></i> Corporate</div>
-            <div class="logo-item"><i class="fa-solid fa-video"></i> Media Corp</div>
-            <!-- REPEAT SAME LIST for seamless loop -->
-            <div class="logo-item"><i class="fa-brands fa-apple"></i> Apple</div>
-            <div class="logo-item"><i class="fa-brands fa-google"></i> Google</div>
-            <div class="logo-item"><i class="fa-brands fa-amazon"></i> Amazon</div>
-            <div class="logo-item"><i class="fa-brands fa-spotify"></i> Spotify</div>
-            <div class="logo-item"><i class="fa-solid fa-building"></i> Corporate</div>
-            <div class="logo-item"><i class="fa-solid fa-video"></i> Media Corp</div>
+            <div class="logo-item"><i class="fa-brands fa-apple"></i> APPLE</div>
+            <div class="logo-item"><i class="fa-solid fa-microchip"></i> POCKET FM</div>
+            <div class="logo-item"><i class="fa-solid fa-building"></i> PRODAPT</div>
+            <div class="logo-item"><i class="fa-solid fa-chart-line"></i> ANNALECT</div>
+            <div class="logo-item"><i class="fa-solid fa-mobile-screen"></i> INMOBI</div>
+            <div class="logo-item"><i class="fa-solid fa-sigma"></i> MU SIGMA</div>
+            <!-- Duplicate for seamless loop -->
+            <div class="logo-item"><i class="fa-brands fa-apple"></i> APPLE</div>
+            <div class="logo-item"><i class="fa-solid fa-microchip"></i> POCKET FM</div>
+            <div class="logo-item"><i class="fa-solid fa-building"></i> PRODAPT</div>
+            <div class="logo-item"><i class="fa-solid fa-chart-line"></i> ANNALECT</div>
+            <div class="logo-item"><i class="fa-solid fa-mobile-screen"></i> INMOBI</div>
+            <div class="logo-item"><i class="fa-solid fa-sigma"></i> MU SIGMA</div>
         </div>
     </div>
 
     <!-- WORK GRID -->
-    <div id="work">
+    <div id="work" class="filter-section">
         <nav class="filter-nav">
-            <button class="filter-btn active" onclick="filterSelection('all')">All</button>
-            <button class="filter-btn" onclick="filterSelection('apple')">Apple</button>
-            <button class="filter-btn" onclick="filterSelection('corporate')">Corporate</button>
+            <button class="filter-btn active" onclick="filterSelection('all')">All Work</button>
+            <button class="filter-btn" onclick="filterSelection('apple')">Apple | Localization</button>
             <button class="filter-btn" onclick="filterSelection('music')">Music Videos</button>
+            <button class="filter-btn" onclick="filterSelection('corporate')">Corporate</button>
+            <button class="filter-btn" onclick="filterSelection('ai')">AI & Workflow</button>
+            <button class="filter-btn" onclick="filterSelection('3d')">3D Renders</button>
         </nav>
 
         <div class="grid">
-            <!-- ADD YOUR VIDEO CARDS HERE (Same as previous code) -->
-            <a href="#" class="card show" data-category="apple">
-                <img src="https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?auto=format&fit=crop&w=800&q=80">
-                <div class="card-info"><h3>Apple Project</h3></div>
+            <!-- APPLE CATEGORY (14 videos) -->
+            <a href="https://www.youtube.com/watch?v=VWv6ebaknXU" target="_blank" class="card show" data-category="apple">
+                <img src="https://img.youtube.com/vi/VWv6ebaknXU/maxresdefault.jpg" alt="Apple Localization">
+                <div class="card-info"><h3>Apple Localization</h3><p>Regional Content</p></div>
             </a>
-            <a href="#" class="card show" data-category="music">
-                <img src="https://images.unsplash.com/photo-1514525253440-b393452e8d26?auto=format&fit=crop&w=800&q=80">
-                <div class="card-info"><h3>Music Video</h3></div>
+            <a href="https://www.youtube.com/watch?v=WtLTRzo-uIw" target="_blank" class="card show" data-category="apple">
+                <img src="https://img.youtube.com/vi/WtLTRzo-uIw/maxresdefault.jpg" alt="Apple Localization">
+                <div class="card-info"><h3>Apple Localization</h3><p>Regional Content</p></div>
             </a>
-             <a href="#" class="card show" data-category="corporate">
-                <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=800&q=80">
-                <div class="card-info"><h3>Corporate Ad</h3></div>
+            <a href="https://www.youtube.com/watch?v=bqBfa0vzZAs" target="_blank" class="card show" data-category="apple">
+                <img src="https://img.youtube.com/vi/bqBfa0vzZAs/maxresdefault.jpg" alt="Apple Localization">
+                <div class="card-info"><h3>Apple Localization</h3><p>Regional Content</p></div>
+            </a>
+            <a href="https://www.youtube.com/watch?v=cqdXLxd9iEs" target="_blank" class="card show" data-category="apple">
+                <img src="https://img.youtube.com/vi/cqdXLxd9iEs/maxresdefault.jpg" alt="Apple Localization">
+                <div class="card-info"><h3>Apple Localization</h3><p>Regional Content</p></div>
+            </a>
+            <a href="https://www.youtube.com/watch?v=iVR6hbmxzNE" target="_blank" class="card show" data-category="apple">
+                <img src="https://img.youtube.com/vi/iVR6hbmxzNE/maxresdefault.jpg" alt="Apple Localization">
+                <div class="card-info"><h3>Apple Localization</h3><p>Regional Content</p></div>
+            </a>
+            <a href="https://www.youtube.com/watch?v=8QJmD1EPYYk" target="_blank" class="card show" data-category="apple">
+                <img src="https://img.youtube.com/vi/8QJmD1EPYYk/maxresdefault.jpg" alt="Apple Localization">
+                <div class="card-info"><h3>Apple Localization</h3><p>Regional Content</p></div>
+            </a>
+            <a href="https://www.youtube.com/watch?v=eTHz26-3oI4" target="_blank" class="card show" data-category="apple">
+                <img src="https://img.youtube.com/vi/eTHz26-3oI4/maxresdefault.jpg" alt="Apple Localization">
+                <div class="card-info"><h3>Apple Localization</h3><p>Regional Content</p></div>
+            </a>
+            <a href="https://www.youtube.com/watch?v=nEYmlj9jKdU" target="_blank" class="card show" data-category="apple">
+                <img src="https://img.youtube.com/vi/nEYmlj9jKdU/maxresdefault.jpg" alt="Apple Localization">
+                <div class="card-info"><h3>Apple Localization</h3><p>Regional Content</p></div>
+            </a>
+            <a href="https://www.youtube.com/watch?v=gqxkGnTM0bY" target="_blank" class="card show" data-category="apple">
+                <img src="https://img.youtube.com/vi/gqxkGnTM0bY/maxresdefault.jpg" alt="Apple Localization">
+                <div class="card-info"><h3>Apple Localization</h3><p>Regional Content</p></div>
+            </a>
+            <a href="https://www.youtube.com/watch?v=-xhpEZVMfa0" target="_blank" class="card show" data-category="apple">
+                <img src="https://img.youtube.com/vi/-xhpEZVMfa0/maxresdefault.jpg" alt="Apple Localization">
+                <div class="card-info"><h3>Apple Localization</h3><p>Regional Content</p></div>
+            </a>
+            <a href="https://www.youtube.com/watch?v=nzz6ca-YNb8" target="_blank" class="card show" data-category="apple">
+                <img src="https://img.youtube.com/vi/nzz6ca-YNb8/maxresdefault.jpg" alt="Apple Localization">
+                <div class="card-info"><h3>Apple Localization</h3><p>Regional Content</p></div>
+            </a>
+            <a href="https://www.youtube.com/watch?v=Nt_lbFsVKbA" target="_blank" class="card show" data-category="apple">
+                <img src="https://img.youtube.com/vi/Nt_lbFsVKbA/maxresdefault.jpg" alt="Apple Localization">
+                <div class="card-info"><h3>Apple Localization</h3><p>Regional Content</p></div>
+            </a>
+            <a href="https://www.youtube.com/watch?v=HWMXN_lq9bg" target="_blank" class="card show" data-category="apple">
+                <img src="https://img.youtube.com/vi/HWMXN_lq9bg/maxresdefault.jpg" alt="Apple Localization">
+                <div class="card-info"><h3>Apple Localization</h3><p>Regional Content</p></div>
+            </a>
+            <a href="https://www.youtube.com/watch?v=__GerGfOKjA" target="_blank" class="card show" data-category="apple">
+                <img src="https://img.youtube.com/vi/__GerGfOKjA/maxresdefault.jpg" alt="Apple Localization">
+                <div class="card-info"><h3>Apple Localization</h3><p>Regional Content</p></div>
+            </a>
+
+            <!-- MUSIC VIDEOS (8 videos) -->
+            <a href="https://www.youtube.com/watch?v=_rYpnSwfm98" target="_blank" class="card show" data-category="music">
+                <img src="https://img.youtube.com/vi/_rYpnSwfm98/maxresdefault.jpg" alt="Music Video">
+                <div class="card-info"><h3>Music Video</h3><p>Original Production</p></div>
+            </a>
+            <a href="https://www.youtube.com/watch?v=FCdi2Nh-rQg" target="_blank" class="card show" data-category="music">
+                <img src="https://img.youtube.com/vi/FCdi2Nh-rQg/maxresdefault.jpg" alt="Music Video">
+                <div class="card-info"><h3>Music Video</h3><p>Original Production</p></div>
+            </a>
+            <a href="https://www.youtube.com/watch?v=6f1kdg-Ktw4" target="_blank" class="card show" data-category="music">
+                <img src="https://img.youtube.com/vi/6f1kdg-Ktw4/maxresdefault.jpg" alt="Music Video">
+                <div class="card-info"><h3>Music Video</h3><p>Original Production</p></div>
+            </a>
+            <a href="https://www.youtube.com/watch?v=E3tbQRduGSg" target="_blank" class="card show" data-category="music">
+                <img src="https://img.youtube.com/vi/E3tbQRduGSg/maxresdefault.jpg" alt="Music Video">
+                <div class="card-info"><h3>Music Video</h3><p>Original Production</p></div>
+            </a>
+            <a href="https://www.youtube.com/watch?v=oS2-txTcEEE" target="_blank" class="card show" data-category="music">
+                <img src="https://img.youtube.com/vi/oS2-txTcEEE/maxresdefault.jpg" alt="Music Video">
+                <div class="card-info"><h3>Music Video</h3><p>Original Production</p></div>
+            </a>
+            <a href="https://www.youtube.com/watch?v=Au0spxm9ivk" target="_blank" class="card show" data-category="music">
+                <img src="https://img.youtube.com/vi/Au0spxm9ivk/maxresdefault.jpg" alt="Music Video">
+                <div class="card-info"><h3>Music Video</h3><p>Original Production</p></div>
+            </a>
+            <a href="https://www.youtube.com/watch?v=bxZHs1HUZEU" target="_blank" class="card show" data-category="music">
+                <img src="https://img.youtube.com/vi/bxZHs1HUZEU/maxresdefault.jpg" alt="Music Video">
+                <div class="card-info"><h3>Music Video</h3><p>Original Production</p></div>
+            </a>
+            <a href="https://www.youtube.com/watch?v=Q38kaUCaHlQ" target="_blank" class="card show" data-category="music">
+                <img src="https://img.youtube.com/vi/Q38kaUCaHlQ/maxresdefault.jpg" alt="Music Video">
+                <div class="card-info"><h3>Music Video</h3><p>Original Production</p></div>
+            </a>
+
+            <!-- CORPORATE (3 videos) -->
+            <a href="https://www.youtube.com/watch?v=Z3CcZ-SJIEU" target="_blank" class="card show" data-category="corporate">
+                <img src="https://img.youtube.com/vi/Z3CcZ-SJIEU/maxresdefault.jpg" alt="Boltspeed">
+                <div class="card-info"><h3>Prodapt Boltspeed</h3><p>Brand Film</p></div>
+            </a>
+            <a href="https://www.youtube.com/watch?v=tZ2Jobm4wq4" target="_blank" class="card show" data-category="corporate">
+                <img src="https://img.youtube.com/vi/tZ2Jobm4wq4/maxresdefault.jpg" alt="Maveric">
+                <div class="card-info"><h3>Maveric Success Stories</h3><p>Corporate Video</p></div>
+            </a>
+            <a href="https://www.youtube.com/watch?v=G8xdlU7gXrk" target="_blank" class="card show" data-category="corporate">
+                <img src="https://img.youtube.com/vi/G8xdlU7gXrk/maxresdefault.jpg" alt="AI Framework">
+                <div class="card-info"><h3>AI Intelligence Framework</h3><p>Explainer Video</p></div>
+            </a>
+
+            <!-- AI & WORKFLOW -->
+            <a href="https://www.youtube.com/watch?v=G8xdlU7gXrk" target="_blank" class="card show" data-category="ai">
+                <img src="https://img.youtube.com/vi/G8xdlU7gXrk/maxresdefault.jpg" alt="AI Framework">
+                <div class="card-info"><h3>AI-Powered Intelligence</h3><p>Workflow Experiment</p></div>
+            </a>
+
+            <!-- 3D RENDERS -->
+            <a href="https://sudheerj0904.myportfolio.com/hidden" target="_blank" class="card show" data-category="3d">
+                <img src="https://cdn.myportfolio.com/58789622-9b7a-4e02-8150-cfd41312a6f3/9677a1c6-4020-4773-b262-347c2f193812_carw_202x158x32.jpg" alt="Hidden 3D">
+                <div class="card-info"><h3>Hidden</h3><p>3D Art</p></div>
+            </a>
+            <a href="https://sudheerj0904.myportfolio.com/haunted-room" target="_blank" class="card show" data-category="3d">
+                <img src="https://cdn.myportfolio.com/58789622-9b7a-4e02-8150-cfd41312a6f3/d7cb142d-f0e0-461a-8797-2fcb555bda83_carw_202x158x32.jpg" alt="Haunted Room">
+                <div class="card-info"><h3>Haunted Room</h3><p>3D Art</p></div>
             </a>
         </div>
     </div>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init();
-        function filterSelection(c) {
-            var x = document.getElementsByClassName("card");
-            var btns = document.getElementsByClassName("filter-btn");
-            for (var i = 0; i < btns.length; i++) {
-                btns[i].classList.remove("active");
-                if(btns[i].innerText.toLowerCase().includes(c) || c=='all') btns[i].classList.add("active");
-            }
-            if (c == "all") c = "";
-            for (var i = 0; i < x.length; i++) {
-                x[i].classList.remove("show"); x[i].style.display = "none";
-                if (x[i].getAttribute("data-category").indexOf(c) > -1) {
-                    x[i].style.display = "block"; setTimeout((el)=>el.classList.add("show"),10,x[i]);
+        AOS.init({ duration: 800, once: true });
+
+        function filterSelection(category) {
+            const cards = document.querySelectorAll('.card');
+            const buttons = document.querySelectorAll('.filter-btn');
+            
+            buttons.forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.textContent.toLowerCase().includes(category) || category === 'all') {
+                    btn.classList.add('active');
                 }
-            }
+            });
+            
+            cards.forEach(card => {
+                card.classList.remove('show');
+                card.style.display = 'none';
+                
+                const cardCategory = card.getAttribute('data-category');
+                if (category === 'all' || cardCategory === category) {
+                    card.style.display = 'block';
+                    setTimeout(() => card.classList.add('show'), 10);
+                }
+            });
         }
     </script>
 </body>
