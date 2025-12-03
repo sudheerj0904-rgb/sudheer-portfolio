@@ -3,136 +3,675 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MOVIE TITLE | Official Site</title>
+    <title>Enthaa Kathe Maaraaya | Official Film Site</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Oswald:wght@400;600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <style>
-        /* MOVIE THEME: Darker, Red Accents, Serif Fonts */
-        :root { --bg: #000; --accent: #D81F26; --text: #eee; }
-        body { background: var(--bg); color: var(--text); font-family: 'Lato', sans-serif; overflow-x: hidden; }
+        :root { 
+            --bg: #000; 
+            --accent: #E50914; 
+            --text: #eee;
+            --card-bg: #0a0a0a;
+            --border: #1a1a1a;
+        }
         
-        /* NAV */
-        .top-nav { padding: 20px; display: flex; justify-content: space-between; position: absolute; width: 100%; z-index: 10; }
-        .back-btn { color: white; text-decoration: none; font-weight: bold; display: flex; align-items: center; gap: 10px; }
-        .back-btn:hover { color: var(--accent); }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            background: var(--bg); 
+            color: var(--text); 
+            font-family: 'Lato', sans-serif; 
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+        
+        /* NAVIGATION */
+        .top-nav { 
+            padding: 30px 40px; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center;
+            position: fixed; 
+            width: 100%; 
+            z-index: 1000;
+            background: linear-gradient(180deg, rgba(0,0,0,0.9) 0%, transparent 100%);
+            backdrop-filter: blur(10px);
+        }
+        
+        .back-btn { 
+            color: white; 
+            text-decoration: none; 
+            font-weight: 700; 
+            display: flex; 
+            align-items: center; 
+            gap: 12px;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            padding: 10px 20px;
+            border: 1px solid transparent;
+            border-radius: 4px;
+        }
+        
+        .back-btn:hover { 
+            color: var(--accent);
+            border-color: var(--accent);
+            background: rgba(229, 9, 20, 0.1);
+        }
+        
+        .social-links { 
+            display: flex; 
+            gap: 20px;
+        }
+        
+        .social-links a {
+            color: #666;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: var(--accent);
+            transform: translateY(-2px);
+        }
 
         /* HEADER */
-        .movie-header { height: 80vh; position: relative; display: flex; align-items: flex-end; padding-bottom: 80px; }
-        .poster-bg { position: absolute; width: 100%; height: 100%; object-fit: cover; opacity: 0.5; mask-image: linear-gradient(black, transparent); -webkit-mask-image: linear-gradient(black, transparent); }
+        .movie-header { 
+            height: 100vh; 
+            position: relative; 
+            display: flex; 
+            align-items: flex-end; 
+            padding-bottom: 100px;
+            overflow: hidden;
+        }
         
-        .header-content { position: relative; z-index: 2; padding: 0 5%; max-width: 800px; }
-        h1 { font-family: 'Cinzel', serif; font-size: 5rem; text-transform: uppercase; margin-bottom: 10px; color: var(--accent); text-shadow: 0 0 20px rgba(216, 31, 38, 0.4); }
-        .logline { font-size: 1.3rem; margin-bottom: 30px; font-style: italic; }
+        .poster-bg { 
+            position: absolute; 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            opacity: 0.4;
+            filter: grayscale(30%);
+        }
+        
+        .movie-header::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(
+                180deg, 
+                rgba(0,0,0,0.3) 0%, 
+                rgba(0,0,0,0.7) 50%,
+                rgba(0,0,0,0.95) 100%
+            );
+            z-index: 1;
+        }
+        
+        .header-content { 
+            position: relative; 
+            z-index: 2; 
+            padding: 0 5%; 
+            max-width: 1000px;
+        }
+        
+        h1 { 
+            font-family: 'Cinzel', serif; 
+            font-size: clamp(2.5rem, 7vw, 5.5rem);
+            text-transform: uppercase; 
+            margin-bottom: 20px; 
+            color: var(--accent); 
+            text-shadow: 0 0 40px rgba(229, 9, 20, 0.6);
+            letter-spacing: 4px;
+            line-height: 1.1;
+            font-weight: 700;
+        }
+        
+        .film-meta {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.95rem;
+            color: #999;
+            letter-spacing: 1px;
+        }
+        
+        .film-meta span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .imdb-rating {
+            background: #F5C518;
+            color: #000;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-weight: 700;
+        }
+        
+        .logline { 
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            margin-bottom: 40px; 
+            font-style: italic;
+            color: #ccc;
+            font-weight: 300;
+            max-width: 700px;
+            line-height: 1.7;
+        }
+        
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .trailer-btn, .watch-btn {
+            color: white; 
+            padding: 18px 40px; 
+            text-decoration: none; 
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border-radius: 4px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .trailer-btn {
+            background: var(--accent); 
+            box-shadow: 0 4px 20px rgba(229, 9, 20, 0.4);
+        }
+        
+        .watch-btn {
+            background: transparent;
+            border: 2px solid white;
+        }
+        
+        .trailer-btn::before, .watch-btn::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.6s;
+        }
+        
+        .trailer-btn:hover::before, .watch-btn:hover::before { left: 100%; }
+        
+        .trailer-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(229, 9, 20, 0.6);
+        }
+        
+        .watch-btn:hover {
+            background: white;
+            color: black;
+            transform: translateY(-2px);
+        }
+        
+        .trailer-btn i, .watch-btn i { font-size: 1.2rem; }
         
         /* SECTIONS */
-        .section-title { font-family: 'Cinzel', serif; font-size: 2.5rem; text-align: center; margin: 80px 0 40px; color: var(--accent); border-bottom: 1px solid #333; padding-bottom: 20px; width: fit-content; margin-left: auto; margin-right: auto; }
+        .section-title { 
+            font-family: 'Cinzel', serif; 
+            font-size: clamp(2rem, 4vw, 3rem);
+            text-align: center; 
+            margin: 100px 0 60px; 
+            color: var(--accent); 
+            position: relative;
+            padding-bottom: 20px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
         
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 2px;
+            background: var(--accent);
+            box-shadow: 0 0 10px var(--accent);
+        }
+        
+        .container { 
+            max-width: 1400px; 
+            margin: 0 auto; 
+            padding: 0 40px;
+        }
 
-        /* GRID FOR SONGS & FAN VIDEOS */
-        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .video-card { background: #111; padding: 10px; border: 1px solid #333; }
-        .iframe-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; }
-        .iframe-container iframe { position: absolute; top:0; left:0; width:100%; height:100%; border:none; }
-        .vid-title { padding: 15px 5px; font-weight: bold; }
+        /* VIDEO GRID */
+        .video-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+        
+        .video-card { 
+            background: var(--card-bg); 
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .video-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 40px rgba(229, 9, 20, 0.3);
+            border-color: rgba(229, 9, 20, 0.3);
+        }
+        
+        .iframe-container { 
+            position: relative; 
+            padding-bottom: 56.25%; 
+            height: 0; 
+            overflow: hidden;
+            background: #000;
+        }
+        
+        .iframe-container iframe { 
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+            border: none;
+        }
+        
+        .vid-title { 
+            padding: 20px; 
+            font-weight: 600;
+            font-size: 1.05rem;
+            letter-spacing: 0.5px;
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+            color: #ddd;
+        }
 
-        /* GALLERY (MAKING OF) */
-        .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
-        .gallery-img { width: 100%; height: 200px; object-fit: cover; cursor: pointer; transition: 0.3s; filter: grayscale(80%); }
-        .gallery-img:hover { filter: grayscale(0%); transform: scale(1.05); z-index: 2; }
+        /* GALLERY */
+        .gallery-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 15px;
+            margin-bottom: 80px;
+        }
+        
+        .gallery-img { 
+            width: 100%; 
+            height: 280px; 
+            object-fit: cover; 
+            cursor: pointer; 
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            filter: grayscale(70%) brightness(0.7);
+            border: 1px solid var(--border);
+        }
+        
+        .gallery-img:hover { 
+            filter: grayscale(0%) brightness(1);
+            transform: scale(1.03);
+            z-index: 2;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.8);
+            border-color: var(--accent);
+        }
 
         /* REVIEWS */
-        .reviews { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; margin-bottom: 100px; }
-        .review-box { background: #111; padding: 30px; border-left: 3px solid var(--accent); }
-        .quote { font-size: 1.2rem; font-style: italic; margin-bottom: 15px; }
-        .author { color: #888; font-weight: bold; }
+        .reviews { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); 
+            gap: 40px; 
+            margin-bottom: 120px;
+        }
+        
+        .review-box { 
+            background: var(--card-bg); 
+            padding: 40px; 
+            border-left: 4px solid var(--accent);
+            border-radius: 4px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .review-box:hover {
+            background: #111;
+            transform: translateX(4px);
+        }
+        
+        .review-box::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 4rem;
+            color: var(--accent);
+            opacity: 0.2;
+            font-family: 'Cinzel', serif;
+            line-height: 1;
+        }
+        
+        .quote { 
+            font-size: 1.15rem; 
+            font-style: italic; 
+            margin-bottom: 20px;
+            line-height: 1.7;
+            color: #ddd;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .author { 
+            color: #888; 
+            font-weight: 700;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-family: 'Oswald', sans-serif;
+        }
+        
+        /* FOOTER */
+        .movie-footer {
+            background: #000;
+            border-top: 1px solid var(--border);
+            padding: 60px 40px;
+            text-align: center;
+        }
+        
+        .footer-socials {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-socials a {
+            color: #666;
+            font-size: 2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-socials a:hover {
+            color: var(--accent);
+            transform: scale(1.2);
+        }
+        
+        .copyright {
+            color: #555;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
 
+        /* MOBILE RESPONSIVE */
         @media(max-width: 768px) {
-            h1 { font-size: 3rem; }
-            .gallery-grid { grid-template-columns: repeat(2, 1fr); }
-            .reviews { grid-template-columns: 1fr; }
+            .top-nav { 
+                padding: 20px; 
+                flex-direction: column;
+                gap: 15px;
+                background: rgba(0,0,0,0.95);
+            }
+            
+            .movie-header { 
+                height: 80vh; 
+                padding-bottom: 60px;
+            }
+            
+            h1 { letter-spacing: 2px; }
+            
+            .film-meta { font-size: 0.85rem; gap: 15px; }
+            
+            .logline { font-size: 1rem; }
+            
+            .trailer-btn, .watch-btn {
+                padding: 15px 30px;
+                font-size: 0.9rem;
+            }
+            
+            .container { padding: 0 20px; }
+            
+            .section-title { 
+                margin: 60px 0 40px;
+                letter-spacing: 2px;
+            }
+            
+            .video-grid { 
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            
+            .gallery-grid { 
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+            
+            .gallery-img { height: 200px; }
+            
+            .reviews { 
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .review-box { padding: 30px 25px; }
+            
+            .movie-footer { padding: 40px 20px; }
+        }
+
+        @media(max-width: 480px) {
+            .gallery-grid { grid-template-columns: 1fr; }
+            
+            .social-links { gap: 15px; }
+            .social-links a { font-size: 1.3rem; }
+            
+            .btn-group { flex-direction: column; }
+            .trailer-btn, .watch-btn { width: 100%; justify-content: center; }
         }
     </style>
 </head>
 <body>
 
     <nav class="top-nav">
-        <a href="index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Back to Portfolio</a>
-        <div><i class="fa-brands fa-imdb"></i> <i class="fa-brands fa-instagram"></i></div>
+        <a href="index.html" class="back-btn">
+            <i class="fa-solid fa-arrow-left"></i> 
+            <span>Back to Portfolio</span>
+        </a>
+        <div class="social-links">
+            <a href="https://www.imdb.com/title/tt31079476/" target="_blank" title="IMDb">
+                <i class="fa-brands fa-imdb"></i>
+            </a>
+            <a href="https://www.facebook.com/EnthaKatheMaraya/" target="_blank" title="Facebook">
+                <i class="fa-brands fa-facebook"></i>
+            </a>
+            <a href="https://www.instagram.com/entha_kathe_maaraya/" target="_blank" title="Instagram">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://www.youtube.com/@enthakathemaarya9915" target="_blank" title="YouTube">
+                <i class="fa-brands fa-youtube"></i>
+            </a>
+        </div>
     </nav>
 
-    <!-- HEADER: TRAILER / POSTER -->
+    <!-- HEADER: POSTER & TRAILER -->
     <header class="movie-header">
-        <!-- REPLACE WITH MOVIE POSTER IMAGE -->
-        <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=1600&q=80" class="poster-bg">
+        <img src="https://media.newindianexpress.com/newindianexpress%2F2024-05%2Ff62e2ff4-b9c7-4924-b930-591ddb12b057%2FEntha.jpg" class="poster-bg" alt="Enthaa Kathe Maaraaya Poster">
         
-        <div class="header-content" data-aos="fade-right">
-            <h1>The Lost City</h1>
-            <p class="logline">"In a world of silence, one voice changes everything."</p>
+        <div class="header-content" data-aos="fade-right" data-aos-duration="1200">
+            <h1>ENTHAA KATHE MAARAAYA</h1>
             
-            <!-- TRAILER BUTTON (Opens Modal or Links to YT) -->
-            <a href="YOUR_TRAILER_LINK" target="_blank" style="background: var(--accent); color: white; padding: 15px 30px; text-decoration: none; font-weight: bold;">
-                <i class="fa-solid fa-play"></i> Watch Trailer
-            </a>
+            <div class="film-meta">
+                <span><i class="fa-solid fa-calendar"></i> 2023</span>
+                <span><i class="fa-solid fa-clock"></i> 1h 41m</span>
+                <span><i class="fa-solid fa-film"></i> Drama</span>
+                <span class="imdb-rating"><i class="fa-brands fa-imdb"></i> 9.4/10</span>
+            </div>
+            
+            <p class="logline">"When government water diversion plans threaten villagers' lives, engineer Sudheer wrestles with his conscience. Led by Dakanna, Sharavati, and Bojanna, the community rallies against the project, showcasing resilience in the face of adversity."</p>
+            
+            <div class="btn-group">
+                <a href="https://www.youtube.com/watch?v=kbED4FWTcZA" target="_blank" class="trailer-btn">
+                    <i class="fa-solid fa-play"></i> 
+                    Watch Trailer
+                </a>
+                <a href="https://open.airtelxstream.in/qEDpYM0" target="_blank" class="watch-btn">
+                    <i class="fa-solid fa-tv"></i> 
+                    Stream Now
+                </a>
+            </div>
         </div>
     </header>
 
     <div class="container">
         
-        <!-- SECTION: VIDEO SONGS -->
-        <h2 class="section-title">Original Soundtrack</h2>
+        <!-- SECTION: ORIGINAL SOUNDTRACK -->
+        <h2 class="section-title" data-aos="fade-up">Original Soundtrack</h2>
+        <div class="video-grid">
+            <div class="video-card" data-aos="fade-up" data-aos-delay="0">
+                <div class="iframe-container">
+                    <iframe src="https://www.youtube.com/embed/97Te4BBmkLk" allowfullscreen></iframe>
+                </div>
+                <div class="vid-title">Entha Saavo Maaraya - Ananya Bhat</div>
+            </div>
+            
+            <div class="video-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="iframe-container">
+                    <iframe src="https://www.youtube.com/embed/EXYYYF5FU8U" allowfullscreen></iframe>
+                </div>
+                <div class="vid-title">Sadde Irada - Haricharan</div>
+            </div>
+            
+            <div class="video-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="iframe-container">
+                    <iframe src="https://www.youtube.com/embed/kbED4FWTcZA" allowfullscreen></iframe>
+                </div>
+                <div class="vid-title">Official Trailer</div>
+            </div>
+        </div>
+
+        <!-- SECTION: BEHIND THE SCENES -->
+        <h2 class="section-title" data-aos="fade-up">Behind The Scenes</h2>
+        <div class="gallery-grid" data-aos="zoom-in">
+            <!-- Replace these with your actual BTS photos from the film -->
+            <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=800&q=80" class="gallery-img" alt="BTS 1">
+            <img src="https://images.unsplash.com/photo-1524985069026-dd778a71c7b4?auto=format&fit=crop&w=800&q=80" class="gallery-img" alt="BTS 2">
+            <img src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=800&q=80" class="gallery-img" alt="BTS 3">
+            <img src="https://images.unsplash.com/photo-1574267432644-f610f5b7e93b?auto=format&fit=crop&w=800&q=80" class="gallery-img" alt="BTS 4">
+            <img src="https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?auto=format&fit=crop&w=800&q=80" class="gallery-img" alt="BTS 5">
+            <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&w=800&q=80" class="gallery-img" alt="BTS 6">
+        </div>
+
+        <!-- SECTION: PROMOS & EXTRAS -->
+        <h2 class="section-title" data-aos="fade-up">Promos & Extras</h2>
         <div class="video-grid">
             <div class="video-card" data-aos="fade-up">
-                <div class="iframe-container"><iframe src="https://www.youtube.com/embed/YOUR_SONG_ID_1"></iframe></div>
-                <div class="vid-title">Theme Song - "Echoes"</div>
+                <div class="iframe-container">
+                    <iframe src="https://www.youtube.com/embed/mD37t-m9V5Q" allowfullscreen></iframe>
+                </div>
+                <div class="vid-title">Promo Video</div>
             </div>
+            
             <div class="video-card" data-aos="fade-up" data-aos-delay="100">
-                <div class="iframe-container"><iframe src="https://www.youtube.com/embed/YOUR_SONG_ID_2"></iframe></div>
-                <div class="vid-title">Romantic Track - "Sunrise"</div>
-            </div>
-            <div class="video-card" data-aos="fade-up" data-aos-delay="200">
-                <div class="iframe-container"><iframe src="https://www.youtube.com/embed/YOUR_SONG_ID_3"></iframe></div>
-                <div class="vid-title">Action Theme</div>
+                <div class="iframe-container">
+                    <iframe src="https://www.youtube.com/embed/bHlbQDcO9fY" allowfullscreen></iframe>
+                </div>
+                <div class="vid-title">Extended Promo</div>
             </div>
         </div>
 
-        <!-- SECTION: MAKING OF GALLERY -->
-        <h2 class="section-title">Behind The Scenes</h2>
-        <div class="gallery-grid" data-aos="zoom-in">
-            <!-- ADD YOUR MAKING OF PHOTOS HERE -->
-            <img src="https://via.placeholder.com/400x300/333" class="gallery-img">
-            <img src="https://via.placeholder.com/400x300/444" class="gallery-img">
-            <img src="https://via.placeholder.com/400x300/555" class="gallery-img">
-            <img src="https://via.placeholder.com/400x300/666" class="gallery-img">
-        </div>
-
-        <!-- SECTION: FAN VIDEOS -->
-        <h2 class="section-title">Fan Reactions</h2>
-        <div class="video-grid">
-            <div class="video-card">
-                <div class="iframe-container"><iframe src="https://www.youtube.com/embed/YOUR_FAN_VIDEO_ID"></iframe></div>
-                <div class="vid-title">Public Reaction @ Premiere</div>
-            </div>
-        </div>
-
-        <!-- SECTION: REVIEWS -->
-        <h2 class="section-title">Critical Acclaim</h2>
+        <!-- SECTION: CRITICAL ACCLAIM -->
+        <h2 class="section-title" data-aos="fade-up">Critical Acclaim</h2>
         <div class="reviews">
             <div class="review-box" data-aos="fade-right">
-                <p class="quote">"A visual masterpiece. Sudheer's direction brings a fresh perspective to the genre."</p>
-                <p class="author">- Times of India</p>
+                <p class="quote">Entha Kathe Maaraaya resonates deeply with its poignant portrayal of environmental activism amidst Karnataka's water crisis. Through mesmerizing storytelling and evocative cinematography, it prompts viewers to reflect on the urgent need for sustainable solutions.</p>
+                <p class="author">— IMDb User Review (10/10)</p>
             </div>
+            
             <div class="review-box" data-aos="fade-left">
-                <p class="quote">"The editing is razor sharp, and the music videos are a treat to watch."</p>
-                <p class="author">- Film Companion</p>
+                <p class="quote">A riveting tale of environmental activism and community resilience. The film's captivating narrative weaves together the struggles of diverse characters against the backdrop of the revered Sharavathi River.</p>
+                <p class="author">— Featured Review</p>
+            </div>
+            
+            <div class="review-box" data-aos="fade-right">
+                <p class="quote">Screened at the Chennai International Film Festival, this film highlights the ongoing water crisis and global warming issues in Bangalore with rare scenarios never seen in the Western Ghats.</p>
+                <p class="author">— The New Indian Express</p>
+            </div>
+            
+            <div class="review-box" data-aos="fade-left">
+                <p class="quote">A cinematic masterpiece that leaves a lasting impression, urging audiences to embrace environmental stewardship and community resilience. Sudheer SJ's editing and VFX work is exceptional.</p>
+                <p class="author">— Film Festival Review</p>
+            </div>
+            
+            <div class="review-box" data-aos="fade-right">
+                <p class="quote">The film delves into current environmental phenomena with a full-fledged entertaining narrative. Based on the story of Kadina Nentaru Forests which serve as the primary source of water.</p>
+                <p class="author">— Kannada Cinema Review</p>
+            </div>
+            
+            <div class="review-box" data-aos="fade-left">
+                <p class="quote">With an IMDb rating of 9.4/10, Enthaa Kathe Maaraaya stands as a powerful testament to independent Kannada cinema's ability to tackle pressing social issues with artistic excellence.</p>
+                <p class="author">— Cinema Enthusiast</p>
+            </div>
+        </div>
+
+        <!-- FILM CREDITS -->
+        <h2 class="section-title" data-aos="fade-up">Film Credits</h2>
+        <div style="background: var(--card-bg); padding: 40px; border-radius: 4px; margin-bottom: 80px; border: 1px solid var(--border);" data-aos="fade-up">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; font-family: 'Lato', sans-serif;">
+                <div>
+                    <h3 style="color: var(--accent); margin-bottom: 10px; font-family: 'Oswald', sans-serif;">Direction</h3>
+                    <p><strong>Written & Directed By:</strong> Rakshith Thirthahalli</p>
+                    <p><strong>Producer:</strong> Ramakrishna Nigade</p>
+                    <p><strong>Banner:</strong> Sanchalana Movies</p>
+                </div>
+                <div>
+                    <h3 style="color: var(--accent); margin-bottom: 10px; font-family: 'Oswald', sans-serif;">Technical Crew</h3>
+                    <p><strong>Cinematography:</strong> Guruprasad Narnad</p>
+                    <p><strong>Music:</strong> Hemanth Jois</p>
+                    <p><strong>Editor & VFX:</strong> Sudheer SJ</p>
+                    <p><strong>Sound Design:</strong> Kumar S</p>
+                </div>
+                <div>
+                    <h3 style="color: var(--accent); margin-bottom: 10px; font-family: 'Oswald', sans-serif;">Cast</h3>
+                    <p><strong>Starring:</strong> Sudheer SJ, Vedanth Subramanya, Sripriya, Keshav Guttalike, Ashwin Hassan, Raviraj Shetty, Sameer Nagarad</p>
+                </div>
+                <div>
+                    <h3 style="color: var(--accent); margin-bottom: 10px; font-family: 'Oswald', sans-serif;">Details</h3>
+                    <p><strong>Runtime:</strong> 1h 41m</p>
+                    <p><strong>Language:</strong> Kannada</p>
+                    <p><strong>Release:</strong> April 27, 2024</p>
+                    <p><strong>Budget:</strong> $75,000</p>
+                </div>
             </div>
         </div>
 
     </div>
 
+    <!-- FOOTER -->
+    <footer class="movie-footer">
+        <div class="footer-socials">
+            <a href="https://www.imdb.com/title/tt31079476/" target="_blank"><i class="fa-brands fa-imdb"></i></a>
+            <a href="https://www.facebook.com/EnthaKatheMaraya/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+            <a href="https://www.instagram.com/entha_kathe_maaraya/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.youtube.com/@enthakathemaarya9915" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://www.linkedin.com/in/sudheer-j-0085aa62/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+        <p class="copyright">© 2024 Enthaa Kathe Maaraaya. Written & Directed by Rakshith Thirthahalli | Edited & VFX by Sudheer SJ | Sanchalana Movies. All Rights Reserved.</p>
+    </footer>
+
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>AOS.init();</script>
+    <script>
+        AOS.init({ 
+            duration: 800, 
+            once: true,
+            offset: 100
+        });
+    </script>
 </body>
 </html>
