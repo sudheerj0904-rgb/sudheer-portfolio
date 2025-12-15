@@ -245,19 +245,38 @@
             margin-bottom: 60px;
         }
 
-        .category-section {
-            margin-bottom: 80px;
+        /* FILTER TABS */
+        .filter-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 60px;
+            flex-wrap: wrap;
         }
 
-        .category-title {
+        .filter-btn {
+            padding: 12px 30px;
+            background: transparent;
+            border: 2px solid rgba(255,255,255,0.2);
+            color: #999;
             font-family: 'Oswald', sans-serif;
-            font-size: 1.8rem;
-            letter-spacing: 3px;
-            margin-bottom: 30px;
-            color: #fff;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
             text-transform: uppercase;
-            border-left: 4px solid var(--accent);
-            padding-left: 20px;
+            border-radius: 4px;
+        }
+
+        .filter-btn:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .filter-btn.active {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: white;
         }
 
         /* VIDEO GRID - No Fade Effects */
@@ -265,7 +284,6 @@
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             gap: 30px;
-            margin-bottom: 60px;
         }
 
         .video-card {
@@ -274,6 +292,10 @@
             overflow: hidden;
             transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
             cursor: pointer;
+        }
+
+        .video-card.hidden {
+            display: none;
         }
 
         .video-card:hover {
@@ -523,6 +545,15 @@
             .experience-stats {
                 grid-template-columns: 1fr;
             }
+
+            .filter-tabs {
+                gap: 10px;
+            }
+
+            .filter-btn {
+                padding: 10px 20px;
+                font-size: 0.8rem;
+            }
         }
     </style>
 </head>
@@ -573,340 +604,259 @@
         <h2 class="section-title">Portfolio</h2>
         <p class="section-subtitle">Explore my work across corporate films, music videos, and AI-enhanced visuals</p>
 
-        <!-- APPLE LOCALIZATION CATEGORY -->
-        <div class="category-section">
-            <h3 class="category-title">Apple Localization</h3>
-            <div class="video-grid">
-                <a href="https://www.youtube.com/watch?v=VWv6ebaknXU" target="_blank" class="video-card">
-                    <div class="video-thumbnail">
-                        <img src="https://img.youtube.com/vi/VWv6ebaknXU/maxresdefault.jpg" alt="Apple Localization">
-                        <div class="play-overlay"><i class="fas fa-play"></i></div>
-                    </div>
-                    <div class="video-info">
-                        <h3 class="video-title">Apple Localization 1</h3>
-                        <p class="video-meta">Regional Language Adaptation</p>
-                        <span class="video-category">Apple</span>
-                    </div>
-                </a>
-
-                <a href="https://www.youtube.com/watch?v=WtLTRzo-uIw" target="_blank" class="video-card">
-                    <div class="video-thumbnail">
-                        <img src="https://img.youtube.com/vi/WtLTRzo-uIw/maxresdefault.jpg" alt="Apple Localization">
-                        <div class="play-overlay"><i class="fas fa-play"></i></div>
-                    </div>
-                    <div class="video-info">
-                        <h3 class="video-title">Apple Localization 2</h3>
-                        <p class="video-meta">Regional Language Adaptation</p>
-                        <span class="video-category">Apple</span>
-                    </div>
-                </a>
-
-                <a href="https://www.youtube.com/watch?v=bqBfa0vzZAs" target="_blank" class="video-card">
-                    <div class="video-thumbnail">
-                        <img src="https://img.youtube.com/vi/bqBfa0vzZAs/maxresdefault.jpg" alt="Apple Localization">
-                        <div class="play-overlay"><i class="fas fa-play"></i></div>
-                    </div>
-                    <div class="video-info">
-                        <h3 class="video-title">Apple Localization 3</h3>
-                        <p class="video-meta">Regional Language Adaptation</p>
-                        <span class="video-category">Apple</span>
-                    </div>
-                </a>
-
-                <a href="https://www.youtube.com/watch?v=cqdXLxd9iEs" target="_blank" class="video-card">
-                    <div class="video-thumbnail">
-                        <img src="https://img.youtube.com/vi/cqdXLxd9iEs/maxresdefault.jpg" alt="Apple Localization">
-                        <div class="play-overlay"><i class="fas fa-play"></i></div>
-                    </div>
-                    <div class="video-info">
-                        <h3 class="video-title">Apple Localization 4</h3>
-                        <p class="video-meta">Regional Language Adaptation</p>
-                        <span class="video-category">Apple</span>
-                    </div>
-                </a>
-
-                <a href="https://www.youtube.com/watch?v=iVR6hbmxzNE" target="_blank" class="video-card">
-                    <div class="video-thumbnail">
-                        <img src="https://img.youtube.com/vi/iVR6hbmxzNE/maxresdefault.jpg" alt="Apple Localization">
-                        <div class="play-overlay"><i class="fas fa-play"></i></div>
-                    </div>
-                    <div class="video-info">
-                        <h3 class="video-title">Apple Localization 5</h3>
-                        <p class="video-meta">Regional Language Adaptation</p>
-                        <span class="video-category">Apple</span>
-                    </div>
-                </a>
-
-                <a href="https://www.youtube.com/watch?v=8QJmD1EPYYk" target="_blank" class="video-card">
-                    <div class="video-thumbnail">
-                        <img src="https://img.youtube.com/vi/8QJmD1EPYYk/maxresdefault.jpg" alt="Apple Localization">
-                        <div class="play-overlay"><i class="fas fa-play"></i></div>
-                    </div>
-                    <div class="video-info">
-                        <h3 class="video-title">Apple Localization 6</h3>
-                        <p class="video-meta">Regional Language Adaptation</p>
-                        <span class="video-category">Apple</span>
-                    </div>
-                </a>
-
-                <a href="https://www.youtube.com/watch?v=eTHz26-3oI4" target="_blank" class="video-card">
-                    <div class="video-thumbnail">
-                        <img src="https://img.youtube.com/vi/eTHz26-3oI4/maxresdefault.jpg" alt="Apple Localization">
-                        <div class="play-overlay"><i class="fas fa-play"></i></div>
-                    </div>
-                    <div class="video-info">
-                        <h3 class="video-title">Apple Localization 7</h3>
-                        <p class="video-meta">Regional Language Adaptation</p>
-                        <span class="video-category">Apple</span>
-                    </div>
-                </a>
-
-                <a href="https://www.youtube.com/watch?v=nEYmlj9jKdU" target="_blank" class="video-card">
-                    <div class="video-thumbnail">
-                        <img src="https://img.youtube.com/vi/nEYmlj9jKdU/maxresdefault.jpg" alt="Apple Localization">
-                        <div class="play-overlay"><i class="fas fa-play"></i></div>
-                    </div>
-                    <div class="video-info">
-                        <h3 class="video-title">Apple Localization 8</h3>
-                        <p class="video-meta">Regional Language Adaptation</p>
-                        <span class="video-category">Apple</span>
-                    </div>
-                </a>
-
-                <a href="https://www.youtube.com/watch?v=gqxkGnTM0bY" target="_blank" class="video-card">
-                    <div class="video-thumbnail">
-                        <img src="https://img.youtube.com/vi/gqxkGnTM0bY/maxresdefault.jpg" alt="Apple Localization">
-                        <div class="play-overlay"><i class="fas fa-play"></i></div>
-                    </div>
-                    <div class="video-info">
-                        <h3 class="video-title">Apple Localization 9</h3>
-                        <p class="video-meta">Regional Language Adaptation</p>
-                        <span class="video-category">Apple</span>
-                    </div>
-                </a>
-
-                <a href="https://www.youtube.com/watch?v=-xhpEZVMfa0" target="_blank" class="video-card">
-                    <div class="video-thumbnail">
-                        <img src="https://img.youtube.com/vi/-xhpEZVMfa0/maxresdefault.jpg" alt="Apple Localization">
-                        <div class="play-overlay"><i class="fas fa-play"></i></div>
-                    </div>
-                    <div class="video-info">
-                        <h3 class="video-title">Apple Localization 10</h3>
-                        <p class="video-meta">Regional Language Adaptation</p>
-                        <span class="video-category">Apple</span>
-                    </div>
-                </a>
-
-                <a href="https://www.youtube.com/watch?v=nzz6ca-YNb8" target="_blank" class="video-card">
-                    <div class="video-thumbnail">
-                        <img src="https://img.youtube.com/vi/nzz6ca-YNb8/maxresdefault.jpg" alt="Apple Localization">
-                        <div class="play-overlay"><i class="fas fa-play"></i></div>
-                    </div>
-                    <div class="video-info">
-                        <h3 class="video-title">Apple Localization 11</h3>
-                        <p class="video-meta">Regional Language Adaptation</p>
-                        <span class="video-category">Apple</span>
-                    </div>
-                </a>
-
-                <a href="https://www.youtube.com/watch?v=Nt_lbFsVKbA" target="_blank" class="video-card">
-                    <div class="video-thumbnail">
-                        <img src="https://img.youtube.com/vi/Nt_lbFsVKbA/maxresdefault.jpg" alt="Apple Localization">
-                        <div class="play-overlay"><i class="fas fa-play"></i></div>
-                    </div>
-                    <div class="video-info">
-                        <h3 class="video-title">Apple Localization 12</h3>
-                        <p class="video-meta">Regional Language Adaptation</p>
-                        <span class="video-category">Apple</span>
-                    </div>
-                </a>
-
-                <a href="https://www.youtube.com/watch?v=HWMXN_lq9bg" target="_blank" class="video-card">
-                    <div class="video-thumbnail">
-                        <img src="https://img.youtube.com/vi/HWMXN_lq9bg/maxresdefault.jpg" alt="Apple Localization">
-                        <div class="play-overlay"><i class="fas fa-play"></i></div>
-                    </div>
-                    <div class="video-info">
-                        <h3 class="video-title">Apple Localization 13</h3>
-                        <p class="video-meta">Regional Language Adaptation</p>
-                        <span class="video-category">Apple</span>
-                    </div>
-                </a>
-
-                <a href="https://www.youtube.com/watch?v=__GerGfOKjA" target="_blank" class="video-card">
-                    <div class="video-thumbnail">
-                        <img src="https://img.youtube.com/vi/__GerGfOKjA/maxresdefault.jpg" alt="Apple Localization">
-                        <div class="play-overlay"><i class="fas fa-play"></i></div>
-                    </div>
-                    <div class="video-info">
-                        <h3 class="video-title">Apple Localization 14</h3>
-                        <p class="video-meta">Regional Language Adaptation</p>
-                        <span class="video-category">Apple</span>
-                    </div>
-                </a>
-            </div>
+        <!-- FILTER TABS (NO ALL TAB) -->
+        <div class="filter-tabs">
+            <button class="filter-btn active" data-filter="apple">Apple Localization</button>
+            <button class="filter-btn" data-filter="music">Music Videos</button>
+            <button class="filter-btn" data-filter="corporate">Corporate Films</button>
+            <button class="filter-btn" data-filter="ai">AI Experiments</button>
         </div>
 
-        <!-- MUSIC VIDEOS CATEGORY -->
-        <div class="category-section">
-            <h3 class="category-title">Music Videos</h3>
-            <div class="video-grid">
-                <a href="https://www.youtube.com/watch?v=_rYpnSwfm98" target="_blank" class="video-card">
-                    <div class="video-thumbnail">
-                        <img src="https://img.youtube.com/vi/_rYpnSwfm98/maxresdefault.jpg" alt="Music Video">
-                        <div class="play-overlay"><i class="fas fa-play"></i></div>
-                    </div>
-                    <div class="video-info">
-                        <h3 class="video-title">Music Video 1</h3>
-                        <p class="video-meta">Music Video Production</p>
-                        <span class="video-category">Music</span>
-                    </div>
-                </a>
+        <!-- VIDEO GRID -->
+        <div class="video-grid">
+            <!-- APPLE LOCALIZATION VIDEOS -->
+            <a href="https://www.youtube.com/watch?v=VWv6ebaknXU" target="_blank" class="video-card" data-category="apple">
+                <div class="video-thumbnail">
+                    <img src="https://img.youtube.com/vi/VWv6ebaknXU/maxresdefault.jpg" alt="Apple Localization">
+                    <div class="play-overlay"><i class="fas fa-play"></i></div>
+                </div>
+                <div class="video-info">
+                    <h3 class="video-title">Apple Localization 1</h3>
+                    <p class="video-meta">Regional Language Adaptation</p>
+                    <span class="video-category">Apple</span>
+                </div>
+            </a>
 
-                <a href="https://www.youtube.com/watch?v=FCdi2Nh-rQg" target="_blank" class="video-card">
-                    <div class="video-thumbnail">
-                        <img src="https://img.youtube.com/vi/FCdi2Nh-rQg/maxresdefault.jpg" alt="Music Video">
-                        <div class="play-overlay"><i class="fas fa-play"></i></div>
-                    </div>
-                    <div class="video-info">
-                        <h3 class="video-title">Music Video 2</h3>
-                        <p class="video-meta">Music Video Production</p>
-                        <span class="video-category">Music</span>
-                    </div>
-                </a>
+            <a href="https://www.youtube.com/watch?v=WtLTRzo-uIw" target="_blank" class="video-card" data-category="apple">
+                <div class="video-thumbnail">
+                    <img src="https://img.youtube.com/vi/WtLTRzo-uIw/maxresdefault.jpg" alt="Apple Localization">
+                    <div class="play-overlay"><i class="fas fa-play"></i></div>
+                </div>
+                <div class="video-info">
+                    <h3 class="video-title">Apple Localization 2</h3>
+                    <p class="video-meta">Regional Language Adaptation</p>
+                    <span class="video-category">Apple</span>
+                </div>
+            </a>
 
-                <a href="https://www.youtube.com/watch?v=Uh_Uh_Uh_Uh_Uh" target="_blank" class="video-card">
-                    <div class="video-thumbnail">
-                        <img src="https://img.youtube.com/vi/Uh_Uh_Uh_Uh_Uh/maxresdefault.jpg" alt="Music Video">
-                        <div class="play-overlay"><i class="fas fa-play"></i></div>
-                    </div>
-                    <div class="video-info">
-                        <h3 class="video-title">Music Video 3</h3>
-                        <p class="video-meta">Music Video Production</p>
-                        <span class="video-category">Music</span>
-                    </div>
-                </a>
+            <a href="https://www.youtube.com/watch?v=bqBfa0vzZAs" target="_blank" class="video-card" data-category="apple">
+                <div class="video-thumbnail">
+                    <img src="https://img.youtube.com/vi/bqBfa0vzZAs/maxresdefault.jpg" alt="Apple Localization">
+                    <div class="play-overlay"><i class="fas fa-play"></i></div>
+                </div>
+                <div class="video-info">
+                    <h3 class="video-title">Apple Localization 3</h3>
+                    <p class="video-meta">Regional Language Adaptation</p>
+                    <span class="video-category">Apple</span>
+                </div>
+            </a>
 
-                <a href="https://www.youtube.com/watch?v=4YBr4_yoRpk" target="_blank" class="video-card">
-                    <div class="video-thumbnail">
-                        <img src="https://img.youtube.com/vi/4YBr4_yoRpk/maxresdefault.jpg" alt="Music Video">
-                        <div class="play-overlay"><i class="fas fa-play"></i></div>
-                    </div>
-                    <div class="video-info">
-                        <h3 class="video-title">Music Video 4</h3>
-                        <p class="video-meta">Music Video Production</p>
-                        <span class="video-category">Music</span>
-                    </div>
-                </a>
+            <a href="https://www.youtube.com/watch?v=cqdXLxd9iEs" target="_blank" class="video-card" data-category="apple">
+                <div class="video-thumbnail">
+                    <img src="https://img.youtube.com/vi/cqdXLxd9iEs/maxresdefault.jpg" alt="Apple Localization">
+                    <div class="play-overlay"><i class="fas fa-play"></i></div>
+                </div>
+                <div class="video-info">
+                    <h3 class="video-title">Apple Localization 4</h3>
+                    <p class="video-meta">Regional Language Adaptation</p>
+                    <span class="video-category">Apple</span>
+                </div>
+            </a>
 
-                <a href="https://www.youtube.com/watch?v=Uh_Uh_Uh_Uh_Uh2" target="_blank" class="video-card">
-                    <div class="video-thumbnail">
-                        <img src="https://img.youtube.com/vi/Uh_Uh_Uh_Uh_Uh2/maxresdefault.jpg" alt="Music Video">
-                        <div class="play-overlay"><i class="fas fa-play"></i></div>
-                    </div>
-                    <div class="video-info">
-                        <h3 class="video-title">Music Video 5</h3>
-                        <p class="video-meta">Music Video Production</p>
-                        <span class="video-category">Music</span>
-                    </div>
-                </a>
+            <a href="https://www.youtube.com/watch?v=iVR6hbmxzNE" target="_blank" class="video-card" data-category="apple">
+                <div class="video-thumbnail">
+                    <img src="https://img.youtube.com/vi/iVR6hbmxzNE/maxresdefault.jpg" alt="Apple Localization">
+                    <div class="play-overlay"><i class="fas fa-play"></i></div>
+                </div>
+                <div class="video-info">
+                    <h3 class="video-title">Apple Localization 5</h3>
+                    <p class="video-meta">Regional Language Adaptation</p>
+                    <span class="video-category">Apple</span>
+                </div>
+            </a>
 
-                <a href="https://www.youtube.com/watch?v=Uh_Uh_Uh_Uh_Uh3" target="_blank" class="video-card">
-                    <div class="video-thumbnail">
-                        <img src="https://img.youtube.com/vi/Uh_Uh_Uh_Uh_Uh3/maxresdefault.jpg" alt="Music Video">
-                        <div class="play-overlay"><i class="fas fa-play"></i></div>
-                    </div>
-                    <div class="video-info">
-                        <h3 class="video-title">Music Video 6</h3>
-                        <p class="video-meta">Music Video Production</p>
-                        <span class="video-category">Music</span>
-                    </div>
-                </a>
+            <a href="https://www.youtube.com/watch?v=8QJmD1EPYYk" target="_blank" class="video-card" data-category="apple">
+                <div class="video-thumbnail">
+                    <img src="https://img.youtube.com/vi/8QJmD1EPYYk/maxresdefault.jpg" alt="Apple Localization">
+                    <div class="play-overlay"><i class="fas fa-play"></i></div>
+                </div>
+                <div class="video-info">
+                    <h3 class="video-title">Apple Localization 6</h3>
+                    <p class="video-meta">Regional Language Adaptation</p>
+                    <span class="video-category">Apple</span>
+                </div>
+            </a>
 
-                <a href="https://www.youtube.com/watch?v=Uh_Uh_Uh_Uh_Uh4" target="_blank" class="video-card">
-                    <div class="video-thumbnail">
-                        <img src="https://img.youtube.com/vi/Uh_Uh_Uh_Uh_Uh4/maxresdefault.jpg" alt="Music Video">
-                        <div class="play-overlay"><i class="fas fa-play"></i></div>
-                    </div>
-                    <div class="video-info">
-                        <h3 class="video-title">Music Video 7</h3>
-                        <p class="video-meta">Music Video Production</p>
-                        <span class="video-category">Music</span>
-                    </div>
-                </a>
+            <a href="https://www.youtube.com/watch?v=eTHz26-3oI4" target="_blank" class="video-card" data-category="apple">
+                <div class="video-thumbnail">
+                    <img src="https://img.youtube.com/vi/eTHz26-3oI4/maxresdefault.jpg" alt="Apple Localization">
+                    <div class="play-overlay"><i class="fas fa-play"></i></div>
+                </div>
+                <div class="video-info">
+                    <h3 class="video-title">Apple Localization 7</h3>
+                    <p class="video-meta">Regional Language Adaptation</p>
+                    <span class="video-category">Apple</span>
+                </div>
+            </a>
 
-                <a href="https://www.youtube.com/watch?v=Uh_Uh_Uh_Uh_Uh5" target="_blank" class="video-card">
-                    <div class="video-thumbnail">
-                        <img src="https://img.youtube.com/vi/Uh_Uh_Uh_Uh_Uh5/maxresdefault.jpg" alt="Music Video">
-                        <div class="play-overlay"><i class="fas fa-play"></i></div>
-                    </div>
-                    <div class="video-info">
-                        <h3 class="video-title">Music Video 8</h3>
-                        <p class="video-meta">Music Video Production</p>
-                        <span class="video-category">Music</span>
-                    </div>
-                </a>
-            </div>
-        </div>
+            <a href="https://www.youtube.com/watch?v=nEYmlj9jKdU" target="_blank" class="video-card" data-category="apple">
+                <div class="video-thumbnail">
+                    <img src="https://img.youtube.com/vi/nEYmlj9jKdU/maxresdefault.jpg" alt="Apple Localization">
+                    <div class="play-overlay"><i class="fas fa-play"></i></div>
+                </div>
+                <div class="video-info">
+                    <h3 class="video-title">Apple Localization 8</h3>
+                    <p class="video-meta">Regional Language Adaptation</p>
+                    <span class="video-category">Apple</span>
+                </div>
+            </a>
 
-        <!-- CORPORATE FILMS CATEGORY -->
-        <div class="category-section">
-            <h3 class="category-title">Corporate Films</h3>
-            <div class="video-grid">
-                <a href="https://www.youtube.com/watch?v=Uh_Uh_Uh_Uh_Uh6" target="_blank" class="video-card">
-                    <div class="video-thumbnail">
-                        <img src="https://img.youtube.com/vi/Uh_Uh_Uh_Uh_Uh6/maxresdefault.jpg" alt="Corporate Film">
-                        <div class="play-overlay"><i class="fas fa-play"></i></div>
-                    </div>
-                    <div class="video-info">
-                        <h3 class="video-title">Corporate Film 1</h3>
-                        <p class="video-meta">Brand Story</p>
-                        <span class="video-category">Corporate</span>
-                    </div>
-                </a>
+            <a href="https://www.youtube.com/watch?v=gqxkGnTM0bY" target="_blank" class="video-card" data-category="apple">
+                <div class="video-thumbnail">
+                    <img src="https://img.youtube.com/vi/gqxkGnTM0bY/maxresdefault.jpg" alt="Apple Localization">
+                    <div class="play-overlay"><i class="fas fa-play"></i></div>
+                </div>
+                <div class="video-info">
+                    <h3 class="video-title">Apple Localization 9</h3>
+                    <p class="video-meta">Regional Language Adaptation</p>
+                    <span class="video-category">Apple</span>
+                </div>
+            </a>
 
-                <a href="https://www.youtube.com/watch?v=Uh_Uh_Uh_Uh_Uh7" target="_blank" class="video-card">
-                    <div class="video-thumbnail">
-                        <img src="https://img.youtube.com/vi/Uh_Uh_Uh_Uh_Uh7/maxresdefault.jpg" alt="Corporate Film">
-                        <div class="play-overlay"><i class="fas fa-play"></i></div>
-                    </div>
-                    <div class="video-info">
-                        <h3 class="video-title">Corporate Film 2</h3>
-                        <p class="video-meta">Brand Story</p>
-                        <span class="video-category">Corporate</span>
-                    </div>
-                </a>
-            </div>
-        </div>
+            <a href="https://www.youtube.com/watch?v=-xhpEZVMfa0" target="_blank" class="video-card" data-category="apple">
+                <div class="video-thumbnail">
+                    <img src="https://img.youtube.com/vi/-xhpEZVMfa0/maxresdefault.jpg" alt="Apple Localization">
+                    <div class="play-overlay"><i class="fas fa-play"></i></div>
+                </div>
+                <div class="video-info">
+                    <h3 class="video-title">Apple Localization 10</h3>
+                    <p class="video-meta">Regional Language Adaptation</p>
+                    <span class="video-category">Apple</span>
+                </div>
+            </a>
 
-        <!-- AI EXPERIMENTS CATEGORY -->
-        <div class="category-section">
-            <h3 class="category-title">AI Experiments</h3>
-            <div class="video-grid">
-                <a href="https://www.youtube.com/watch?v=Uh_Uh_Uh_Uh_Uh8" target="_blank" class="video-card">
-                    <div class="video-thumbnail">
-                        <img src="https://img.youtube.com/vi/Uh_Uh_Uh_Uh_Uh8/maxresdefault.jpg" alt="AI Experiment">
-                        <div class="play-overlay"><i class="fas fa-play"></i></div>
-                    </div>
-                    <div class="video-info">
-                        <h3 class="video-title">AI Experiment 1</h3>
-                        <p class="video-meta">AI-Enhanced Visuals</p>
-                        <span class="video-category">AI</span>
-                    </div>
-                </a>
+            <a href="https://www.youtube.com/watch?v=nzz6ca-YNb8" target="_blank" class="video-card" data-category="apple">
+                <div class="video-thumbnail">
+                    <img src="https://img.youtube.com/vi/nzz6ca-YNb8/maxresdefault.jpg" alt="Apple Localization">
+                    <div class="play-overlay"><i class="fas fa-play"></i></div>
+                </div>
+                <div class="video-info">
+                    <h3 class="video-title">Apple Localization 11</h3>
+                    <p class="video-meta">Regional Language Adaptation</p>
+                    <span class="video-category">Apple</span>
+                </div>
+            </a>
 
-                <a href="https://www.youtube.com/watch?v=Uh_Uh_Uh_Uh_Uh9" target="_blank" class="video-card">
-                    <div class="video-thumbnail">
-                        <img src="https://img.youtube.com/vi/Uh_Uh_Uh_Uh_Uh9/maxresdefault.jpg" alt="AI Experiment">
-                        <div class="play-overlay"><i class="fas fa-play"></i></div>
-                    </div>
-                    <div class="video-info">
-                        <h3 class="video-title">AI Experiment 2</h3>
-                        <p class="video-meta">AI-Enhanced Visuals</p>
-                        <span class="video-category">AI</span>
-                    </div>
-                </a>
-            </div>
+            <a href="https://www.youtube.com/watch?v=Nt_lbFsVKbA" target="_blank" class="video-card" data-category="apple">
+                <div class="video-thumbnail">
+                    <img src="https://img.youtube.com/vi/Nt_lbFsVKbA/maxresdefault.jpg" alt="Apple Localization">
+                    <div class="play-overlay"><i class="fas fa-play"></i></div>
+                </div>
+                <div class="video-info">
+                    <h3 class="video-title">Apple Localization 12</h3>
+                    <p class="video-meta">Regional Language Adaptation</p>
+                    <span class="video-category">Apple</span>
+                </div>
+            </a>
+
+            <a href="https://www.youtube.com/watch?v=HWMXN_lq9bg" target="_blank" class="video-card" data-category="apple">
+                <div class="video-thumbnail">
+                    <img src="https://img.youtube.com/vi/HWMXN_lq9bg/maxresdefault.jpg" alt="Apple Localization">
+                    <div class="play-overlay"><i class="fas fa-play"></i></div>
+                </div>
+                <div class="video-info">
+                    <h3 class="video-title">Apple Localization 13</h3>
+                    <p class="video-meta">Regional Language Adaptation</p>
+                    <span class="video-category">Apple</span>
+                </div>
+            </a>
+
+            <a href="https://www.youtube.com/watch?v=__GerGfOKjA" target="_blank" class="video-card" data-category="apple">
+                <div class="video-thumbnail">
+                    <img src="https://img.youtube.com/vi/__GerGfOKjA/maxresdefault.jpg" alt="Apple Localization">
+                    <div class="play-overlay"><i class="fas fa-play"></i></div>
+                </div>
+                <div class="video-info">
+                    <h3 class="video-title">Apple Localization 14</h3>
+                    <p class="video-meta">Regional Language Adaptation</p>
+                    <span class="video-category">Apple</span>
+                </div>
+            </a>
+
+            <!-- MUSIC VIDEOS -->
+            <a href="https://www.youtube.com/watch?v=_rYpnSwfm98" target="_blank" class="video-card hidden" data-category="music">
+                <div class="video-thumbnail">
+                    <img src="https://img.youtube.com/vi/_rYpnSwfm98/maxresdefault.jpg" alt="Music Video">
+                    <div class="play-overlay"><i class="fas fa-play"></i></div>
+                </div>
+                <div class="video-info">
+                    <h3 class="video-title">Music Video 1</h3>
+                    <p class="video-meta">Music Video Production</p>
+                    <span class="video-category">Music</span>
+                </div>
+            </a>
+
+            <a href="https://www.youtube.com/watch?v=FCdi2Nh-rQg" target="_blank" class="video-card hidden" data-category="music">
+                <div class="video-thumbnail">
+                    <img src="https://img.youtube.com/vi/FCdi2Nh-rQg/maxresdefault.jpg" alt="Music Video">
+                    <div class="play-overlay"><i class="fas fa-play"></i></div>
+                </div>
+                <div class="video-info">
+                    <h3 class="video-title">Music Video 2</h3>
+                    <p class="video-meta">Music Video Production</p>
+                    <span class="video-category">Music</span>
+                </div>
+            </a>
+
+            <!-- CORPORATE FILMS -->
+            <a href="https://www.youtube.com/watch?v=Uh_Uh_Uh_Uh_Uh6" target="_blank" class="video-card hidden" data-category="corporate">
+                <div class="video-thumbnail">
+                    <img src="https://img.youtube.com/vi/Uh_Uh_Uh_Uh_Uh6/maxresdefault.jpg" alt="Corporate Film">
+                    <div class="play-overlay"><i class="fas fa-play"></i></div>
+                </div>
+                <div class="video-info">
+                    <h3 class="video-title">Corporate Film 1</h3>
+                    <p class="video-meta">Brand Story</p>
+                    <span class="video-category">Corporate</span>
+                </div>
+            </a>
+
+            <a href="https://www.youtube.com/watch?v=Uh_Uh_Uh_Uh_Uh7" target="_blank" class="video-card hidden" data-category="corporate">
+                <div class="video-thumbnail">
+                    <img src="https://img.youtube.com/vi/Uh_Uh_Uh_Uh_Uh7/maxresdefault.jpg" alt="Corporate Film">
+                    <div class="play-overlay"><i class="fas fa-play"></i></div>
+                </div>
+                <div class="video-info">
+                    <h3 class="video-title">Corporate Film 2</h3>
+                    <p class="video-meta">Brand Story</p>
+                    <span class="video-category">Corporate</span>
+                </div>
+            </a>
+
+            <!-- AI EXPERIMENTS -->
+            <a href="https://www.youtube.com/watch?v=Uh_Uh_Uh_Uh_Uh8" target="_blank" class="video-card hidden" data-category="ai">
+                <div class="video-thumbnail">
+                    <img src="https://img.youtube.com/vi/Uh_Uh_Uh_Uh_Uh8/maxresdefault.jpg" alt="AI Experiment">
+                    <div class="play-overlay"><i class="fas fa-play"></i></div>
+                </div>
+                <div class="video-info">
+                    <h3 class="video-title">AI Experiment 1</h3>
+                    <p class="video-meta">AI-Enhanced Visuals</p>
+                    <span class="video-category">AI</span>
+                </div>
+            </a>
+
+            <a href="https://www.youtube.com/watch?v=Uh_Uh_Uh_Uh_Uh9" target="_blank" class="video-card hidden" data-category="ai">
+                <div class="video-thumbnail">
+                    <img src="https://img.youtube.com/vi/Uh_Uh_Uh_Uh_Uh9/maxresdefault.jpg" alt="AI Experiment">
+                    <div class="play-overlay"><i class="fas fa-play"></i></div>
+                </div>
+                <div class="video-info">
+                    <h3 class="video-title">AI Experiment 2</h3>
+                    <p class="video-meta">AI-Enhanced Visuals</p>
+                    <span class="video-category">AI</span>
+                </div>
+            </a>
         </div>
     </section>
 
@@ -984,6 +934,27 @@
     </footer>
 
     <script>
+        // Filter functionality
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const videoCards = document.querySelectorAll('.video-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filter = btn.getAttribute('data-filter');
+
+                videoCards.forEach(card => {
+                    if (card.getAttribute('data-category') === filter) {
+                        card.classList.remove('hidden');
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
+            });
+        });
+
         // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
