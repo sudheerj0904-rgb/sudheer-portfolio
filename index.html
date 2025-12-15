@@ -6,12 +6,6 @@
     <title>Sudheer J | Digital Filmmaker & Video Editor | 10+ Years Experience</title>
     <meta name="description" content="Senior Video Editor at Pocket FM with 10+ years crafting visual stories for Apple, Annalect, Prodapt, Mu Sigma. Expert in corporate videos, motion graphics, and AI-enhanced visuals.">
     
-    <!-- Open Graph -->
-    <meta property="og:title" content="Sudheer J | Digital Filmmaker">
-    <meta property="og:description" content="10+ years sculpting visual narratives for global brands">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://sudheer-visuals.netlify.app">
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@400;600&family=Manrope:wght@300;400;600;700&display=swap" rel="stylesheet">
     
@@ -37,7 +31,7 @@
         a { 
             text-decoration: none; 
             color: white; 
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         /* NAVIGATION */
@@ -50,9 +44,10 @@
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            background: rgba(5,5,5,0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border);
+            background: rgba(5,5,5,0.8);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border-bottom: 0.5px solid rgba(255,255,255,0.1);
         }
 
         .logo {
@@ -72,6 +67,7 @@
             letter-spacing: 2px;
             font-size: 0.9rem;
             text-transform: uppercase;
+            transition: all 0.3s ease;
         }
 
         .nav-links a:hover {
@@ -84,11 +80,13 @@
             color: #E50914;
             border-radius: 4px;
             font-weight: 600;
+            transition: all 0.3s ease;
         }
 
         .filming-btn:hover {
             background: #E50914;
             color: white;
+            transform: translateY(-1px);
         }
 
         /* HERO */
@@ -173,7 +171,7 @@
             letter-spacing: 3px;
             font-size: 1rem;
             cursor: pointer;
-            transition: all 0.4s;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             text-transform: uppercase;
         }
 
@@ -212,7 +210,7 @@
             letter-spacing: 3px;
             color: #333;
             white-space: nowrap;
-            transition: all 0.3s;
+            transition: all 0.3s ease;
         }
 
         .ticker-item:hover {
@@ -247,36 +245,44 @@
             margin-bottom: 60px;
         }
 
-        /* FILTER TABS */
+        /* FILTER TABS - Apple Style */
         .filter-tabs {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 8px;
             margin-bottom: 60px;
             flex-wrap: wrap;
         }
 
         .filter-btn {
-            padding: 12px 30px;
-            background: transparent;
-            border: 1px solid var(--border);
-            color: #666;
+            padding: 10px 24px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: #999;
             font-family: 'Oswald', sans-serif;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             text-transform: uppercase;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
         }
 
-        .filter-btn:hover,
+        .filter-btn:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: rgba(255,255,255,0.2);
+            color: white;
+            transform: translateY(-1px);
+        }
+
         .filter-btn.active {
             background: var(--accent);
             border-color: var(--accent);
             color: white;
         }
 
-        /* VIDEO GRID */
+        /* VIDEO GRID - Apple Style with Faded Thumbnails */
         .video-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
@@ -284,16 +290,15 @@
         }
 
         .video-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
+            background: transparent;
+            border: none;
             overflow: hidden;
-            transition: all 0.4s;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
             cursor: pointer;
         }
 
         .video-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent);
+            transform: translateY(-8px);
         }
 
         .video-thumbnail {
@@ -301,6 +306,7 @@
             padding-bottom: 56.25%;
             overflow: hidden;
             background: #000;
+            border-radius: 12px;
         }
 
         .video-thumbnail img {
@@ -310,11 +316,15 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.4s;
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            filter: grayscale(100%) brightness(0.4) contrast(0.8);
+            opacity: 0.6;
         }
 
         .video-card:hover .video-thumbnail img {
             transform: scale(1.05);
+            filter: grayscale(0%) brightness(1) contrast(1);
+            opacity: 1;
         }
 
         .play-overlay {
@@ -324,26 +334,30 @@
             transform: translate(-50%, -50%);
             width: 60px;
             height: 60px;
-            background: rgba(41, 151, 255, 0.9);
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.3s;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255,255,255,0.2);
         }
 
         .video-card:hover .play-overlay {
-            background: var(--accent);
-            transform: translate(-50%, -50%) scale(1.1);
+            background: rgba(41, 151, 255, 0.9);
+            border-color: var(--accent);
+            transform: translate(-50%, -50%) scale(1.15);
         }
 
         .play-overlay i {
             font-size: 1.5rem;
             margin-left: 3px;
+            color: white;
         }
 
         .video-info {
-            padding: 20px;
+            padding: 20px 8px;
         }
 
         .video-title {
@@ -351,6 +365,11 @@
             font-size: 1.1rem;
             letter-spacing: 1px;
             margin-bottom: 8px;
+            transition: color 0.3s ease;
+        }
+
+        .video-card:hover .video-title {
+            color: var(--accent);
         }
 
         .video-meta {
@@ -363,10 +382,11 @@
             padding: 4px 12px;
             background: rgba(41, 151, 255, 0.1);
             color: var(--accent);
-            border-radius: 3px;
+            border-radius: 12px;
             font-size: 0.75rem;
             margin-top: 10px;
             letter-spacing: 1px;
+            border: 1px solid rgba(41, 151, 255, 0.2);
         }
 
         /* ABOUT SECTION */
@@ -408,9 +428,16 @@
 
         .skill-item {
             padding: 15px;
-            background: var(--card-bg);
-            border: 1px solid var(--border);
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
             border-left: 3px solid var(--accent);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .skill-item:hover {
+            background: rgba(255,255,255,0.05);
+            transform: translateX(5px);
         }
 
         .skill-item h4 {
@@ -435,8 +462,15 @@
         .stat-box {
             text-align: center;
             padding: 40px 20px;
-            background: var(--card-bg);
-            border: 1px solid var(--border);
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .stat-box:hover {
+            background: rgba(255,255,255,0.05);
+            transform: translateY(-5px);
         }
 
         .stat-number {
@@ -458,7 +492,7 @@
         footer {
             padding: 60px 5%;
             background: #000;
-            border-top: 1px solid var(--border);
+            border-top: 1px solid rgba(255,255,255,0.1);
         }
 
         .footer-content {
@@ -477,7 +511,7 @@
         .social-links a {
             font-size: 1.5rem;
             color: #666;
-            transition: all 0.3s;
+            transition: all 0.3s ease;
         }
 
         .social-links a:hover {
