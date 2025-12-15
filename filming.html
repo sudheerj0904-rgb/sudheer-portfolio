@@ -365,8 +365,8 @@
         /* PHOTO GALLERY */
         .photo-gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
             margin-top: 60px;
         }
 
@@ -375,8 +375,9 @@
             overflow: hidden;
             border-radius: 12px;
             cursor: pointer;
-            aspect-ratio: 4/3;
+            aspect-ratio: 16/10;
             background: #000;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
 
         .photo-item img {
@@ -387,7 +388,7 @@
         }
 
         .photo-item:hover img {
-            transform: scale(1.1);
+            transform: scale(1.08);
         }
 
         .photo-overlay {
@@ -395,8 +396,8 @@
             bottom: 0;
             left: 0;
             right: 0;
-            padding: 20px;
-            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+            padding: 25px;
+            background: linear-gradient(to top, rgba(0,0,0,0.95), transparent);
             transform: translateY(100%);
             transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
@@ -407,8 +408,9 @@
 
         .photo-caption {
             color: white;
-            font-size: 0.9rem;
-            font-weight: 300;
+            font-size: 1rem;
+            font-weight: 400;
+            letter-spacing: 0.5px;
         }
 
         footer {
@@ -466,7 +468,7 @@
             }
 
             .photo-gallery {
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                grid-template-columns: 1fr;
             }
 
             .footer-content {
@@ -631,38 +633,39 @@
         <p class="section-subtitle" style="text-align: center; margin: 0 auto;">Capturing moments from the making of Entha Kathe Maaraya</p>
 
         <div class="photo-gallery">
+            <!-- Replace these placeholder images with actual making photos -->
             <div class="photo-item">
-                <img src="https://cdn.myportfolio.com/58789622-9b7a-4e02-8150-cfd41312a6f3/e8e8e8e8-e8e8-e8e8-e8e8-e8e8e8e8e8e8_rw_1920.jpg?h=e8e8e8e8e8e8e8e8e8e8e8e8e8e8e8e8" alt="Making Photo 1">
+                <img src="https://cdn.myportfolio.com/58789622-9b7a-4e02-8150-cfd41312a6f3/68e8544b-3533-4032-9201-effcf482b49a_rw_600.jpg" alt="Making Photo 1">
                 <div class="photo-overlay">
                     <p class="photo-caption">On set during filming</p>
                 </div>
             </div>
             <div class="photo-item">
-                <img src="https://cdn.myportfolio.com/58789622-9b7a-4e02-8150-cfd41312a6f3/f0f0f0f0-f0f0-f0f0-f0f0-f0f0f0f0f0f0_rw_1920.jpg?h=f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0" alt="Making Photo 2">
+                <img src="https://cdn.myportfolio.com/58789622-9b7a-4e02-8150-cfd41312a6f3/68e8544b-3533-4032-9201-effcf482b49a_rw_600.jpg" alt="Making Photo 2">
                 <div class="photo-overlay">
                     <p class="photo-caption">Director and crew collaboration</p>
                 </div>
             </div>
             <div class="photo-item">
-                <img src="https://cdn.myportfolio.com/58789622-9b7a-4e02-8150-cfd41312a6f3/d4d4d4d4-d4d4-d4d4-d4d4-d4d4d4d4d4d4_rw_1920.jpg?h=d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4" alt="Making Photo 3">
+                <img src="https://cdn.myportfolio.com/58789622-9b7a-4e02-8150-cfd41312a6f3/68e8544b-3533-4032-9201-effcf482b49a_rw_600.jpg" alt="Making Photo 3">
                 <div class="photo-overlay">
                     <p class="photo-caption">Editing suite moments</p>
                 </div>
             </div>
             <div class="photo-item">
-                <img src="https://cdn.myportfolio.com/58789622-9b7a-4e02-8150-cfd41312a6f3/c8c8c8c8-c8c8-c8c8-c8c8-c8c8c8c8c8c8_rw_1920.jpg?h=c8c8c8c8c8c8c8c8c8c8c8c8c8c8c8c8" alt="Making Photo 4">
+                <img src="https://cdn.myportfolio.com/58789622-9b7a-4e02-8150-cfd41312a6f3/68e8544b-3533-4032-9201-effcf482b49a_rw_600.jpg" alt="Making Photo 4">
                 <div class="photo-overlay">
                     <p class="photo-caption">Cast and crew on location</p>
                 </div>
             </div>
             <div class="photo-item">
-                <img src="https://cdn.myportfolio.com/58789622-9b7a-4e02-8150-cfd41312a6f3/b2b2b2b2-b2b2-b2b2-b2b2-b2b2b2b2b2b2_rw_1920.jpg?h=b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2" alt="Making Photo 5">
+                <img src="https://cdn.myportfolio.com/58789622-9b7a-4e02-8150-cfd41312a6f3/68e8544b-3533-4032-9201-effcf482b49a_rw_600.jpg" alt="Making Photo 5">
                 <div class="photo-overlay">
                     <p class="photo-caption">Production setup</p>
                 </div>
             </div>
             <div class="photo-item">
-                <img src="https://cdn.myportfolio.com/58789622-9b7a-4e02-8150-cfd41312a6f3/a1a1a1a1-a1a1-a1a1-a1a1-a1a1a1a1a1a1_rw_1920.jpg?h=a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1" alt="Making Photo 6">
+                <img src="https://cdn.myportfolio.com/58789622-9b7a-4e02-8150-cfd41312a6f3/68e8544b-3533-4032-9201-effcf482b49a_rw_600.jpg" alt="Making Photo 6">
                 <div class="photo-overlay">
                     <p class="photo-caption">Cinematography in action</p>
                 </div>
