@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sudheer J | Filming & Cinema - Feature Films, Editing, Producing, Acting</title>
-    <meta name="description" content="Explore Sudheer J's cinematic work in feature film editing, producing, and acting. Beyond corporate - pure storytelling.">
+    <meta name="description" content="Explore Sudheer J's cinematic work in feature film editing, producing, and acting. Editor of 'Entha Kathe Maaraya' - Kannada social drama film.">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@400;600&family=Manrope:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -31,7 +31,7 @@
         a { 
             text-decoration: none; 
             color: white; 
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         nav {
@@ -43,9 +43,10 @@
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            background: rgba(5,5,5,0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border);
+            background: rgba(5,5,5,0.8);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border-bottom: 0.5px solid rgba(255,255,255,0.1);
         }
 
         .logo {
@@ -60,11 +61,13 @@
             color: #2997FF;
             border-radius: 4px;
             font-weight: 600;
+            transition: all 0.3s ease;
         }
 
         .back-btn:hover {
             background: #2997FF;
             color: white;
+            transform: translateY(-1px);
         }
 
         .hero { 
@@ -84,7 +87,7 @@
             width: 100%;
             height: 100%;
             background: linear-gradient(rgba(5,5,5,0.7), rgba(5,5,5,0.9)), 
-                        url('https://cdn.myportfolio.com/58789622-9b7a-4e02-8150-cfd41312a6f3/080c8cfb-8c46-4e93-9cce-0f32d5c20f2f_rwc_284x0x920x720x32.jpg');
+                        url('https://cdn.myportfolio.com/58789622-9b7a-4e02-8150-cfd41312a6f3/68e8544b-3533-4032-9201-effcf482b49a_rw_600.jpg');
             background-size: cover;
             background-position: center;
             filter: grayscale(50%);
@@ -151,49 +154,239 @@
             max-width: 800px;
         }
 
-        .cta {
-            text-align: center;
+        /* FEATURE FILM SECTION */
+        .film-hero {
+            background: linear-gradient(180deg, var(--bg) 0%, #0a0a0a 100%);
             padding: 100px 5%;
-            background: linear-gradient(135deg, #E50914 0%, #8B0000 100%);
         }
 
-        .cta h2 {
+        .film-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .film-poster-container {
+            position: sticky;
+            top: 100px;
+        }
+
+        .film-poster {
+            width: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        }
+
+        .film-poster img {
+            width: 100%;
+            display: block;
+            transition: transform 0.6s ease;
+        }
+
+        .film-poster:hover img {
+            transform: scale(1.05);
+        }
+
+        .film-details h2 {
             font-family: 'Anton', sans-serif;
             font-size: clamp(2rem, 5vw, 3.5rem);
             letter-spacing: 4px;
             margin-bottom: 20px;
-            text-transform: uppercase;
+            color: var(--accent);
         }
 
-        .cta p {
-            font-size: 1.2rem;
-            margin-bottom: 40px;
-            opacity: 0.9;
+        .film-meta {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
         }
 
-        .cta-btn {
-            padding: 18px 50px;
-            background: white;
-            color: #E50914;
-            border: none;
+        .meta-badge {
+            padding: 8px 16px;
+            background: rgba(229, 9, 20, 0.1);
+            border: 1px solid rgba(229, 9, 20, 0.3);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--accent);
+            letter-spacing: 1px;
+        }
+
+        .film-description {
+            color: #ccc;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+
+        .imdb-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 30px;
+            background: #F5C518;
+            color: #000;
             font-family: 'Oswald', sans-serif;
-            letter-spacing: 3px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s;
-            text-transform: uppercase;
+            letter-spacing: 2px;
             font-weight: 600;
+            border-radius: 6px;
+            margin-bottom: 40px;
+            transition: all 0.3s ease;
         }
 
-        .cta-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        .imdb-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(245, 197, 24, 0.3);
+        }
+
+        .credits-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .credit-item {
+            padding: 15px;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-left: 3px solid var(--accent);
+            border-radius: 8px;
+        }
+
+        .credit-label {
+            font-family: 'Oswald', sans-serif;
+            letter-spacing: 2px;
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .credit-value {
+            color: white;
+            font-size: 1rem;
+        }
+
+        /* VIDEO GALLERY - Apple Style */
+        .video-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .video-item {
+            background: transparent;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .video-item:hover {
+            transform: translateY(-8px);
+        }
+
+        .video-embed {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
+        }
+
+        .video-embed iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .video-thumbnail-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            overflow: hidden;
+            border-radius: 12px;
+            background: #000;
+        }
+
+        .video-thumbnail-wrapper img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            filter: grayscale(100%) brightness(0.4) contrast(0.8);
+            opacity: 0.6;
+        }
+
+        .video-item:hover .video-thumbnail-wrapper img {
+            transform: scale(1.05);
+            filter: grayscale(0%) brightness(1) contrast(1);
+            opacity: 1;
+        }
+
+        .play-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 70px;
+            height: 70px;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .video-item:hover .play-overlay {
+            background: rgba(229, 9, 20, 0.9);
+            border-color: var(--accent);
+            transform: translate(-50%, -50%) scale(1.15);
+        }
+
+        .play-overlay i {
+            font-size: 2rem;
+            margin-left: 4px;
+            color: white;
+        }
+
+        .video-caption {
+            padding: 20px 8px;
+        }
+
+        .video-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            transition: color 0.3s ease;
+        }
+
+        .video-item:hover .video-title {
+            color: var(--accent);
+        }
+
+        .video-desc {
+            color: #666;
+            font-size: 0.9rem;
         }
 
         footer {
             padding: 60px 5%;
             background: #000;
-            border-top: 1px solid var(--border);
+            border-top: 1px solid rgba(255,255,255,0.1);
         }
 
         .footer-content {
@@ -212,7 +405,7 @@
         .social-links a {
             font-size: 1.5rem;
             color: #666;
-            transition: all 0.3s;
+            transition: all 0.3s ease;
         }
 
         .social-links a:hover {
@@ -226,6 +419,24 @@
         }
 
         @media (max-width: 768px) {
+            .film-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .film-poster-container {
+                position: relative;
+                top: 0;
+            }
+
+            .credits-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .video-gallery {
+                grid-template-columns: 1fr;
+            }
+
             .footer-content {
                 flex-direction: column;
                 gap: 30px;
@@ -249,20 +460,156 @@
         </div>
     </section>
 
-    <section>
-        <h2 class="section-title">Feature Film Work</h2>
-        <p class="section-subtitle">Crafting narratives that resonate. Every cut tells a story, every frame carries emotion.</p>
-        <p style="color: #999; line-height: 1.8;">
-            My cinematic journey extends beyond corporate videos into the realm of feature films, music videos, and independent cinema. 
-            As an editor, I've shaped stories that have touched audiences. As a producer, I've managed complex productions from concept to delivery. 
-            As an actor, I've brought characters to life with authenticity and depth.
-        </p>
+    <!-- FEATURE FILM SECTION -->
+    <section class="film-hero">
+        <div class="film-content">
+            <div class="film-poster-container">
+                <div class="film-poster">
+                    <img src="https://cdn.myportfolio.com/58789622-9b7a-4e02-8150-cfd41312a6f3/68e8544b-3533-4032-9201-effcf482b49a_rw_600.jpg" alt="Entha Kathe Maaraya">
+                </div>
+            </div>
+
+            <div class="film-details">
+                <h2>Entha Kathe Maaraya</h2>
+                
+                <div class="film-meta">
+                    <span class="meta-badge">Editor</span>
+                    <span class="meta-badge">Kannada Film</span>
+                    <span class="meta-badge">Social Drama</span>
+                    <span class="meta-badge">Actor</span>
+                </div>
+
+                <p class="film-description">
+                    <strong>Entha Kathe Maaraya</strong> is an Indian Kannada social drama film written and directed by Rakshith Thirthahalli. 
+                    The film features Sudheer SJ (Editor & Actor), Vedhanth Subramanya, Sripriya, Ashwin Hasan, Keshav Guttalike, 
+                    Sameer Nagarad, Raviraj Shetty, and Pallavi Gopal in leading roles.
+                </p>
+
+                <a href="https://www.imdb.com/title/tt31079476/" target="_blank" class="imdb-link">
+                    <i class="fab fa-imdb"></i> View on IMDb
+                </a>
+
+                <h3 style="font-family: 'Oswald', sans-serif; letter-spacing: 2px; margin-bottom: 20px; font-size: 1.5rem;">Plot</h3>
+                <p class="film-description">
+                    In a Karnataka village, engineer Sudheer struggles with his loyalty to the government when plans to divert water 
+                    threaten locals' lives. Led by Dakanna, Sharavati, Bojanna, and villagers unite against the project, highlighting 
+                    the strength of community in adversity.
+                </p>
+
+                <p class="film-description">
+                    Nestled in the idyllic countryside of Karnataka, the film delves into the life of Dakanna, a revered elder known 
+                    for his unwavering principles and deep connection to the land. The tranquility of the village is shattered when 
+                    Sudheer, a determined DPR engineer, unveils plans for a controversial river diversion project.
+                </p>
+
+                <h3 style="font-family: 'Oswald', sans-serif; letter-spacing: 2px; margin-top: 40px; margin-bottom: 20px; font-size: 1.5rem;">Film Credits</h3>
+                <div class="credits-grid">
+                    <div class="credit-item">
+                        <div class="credit-label">Production Banner</div>
+                        <div class="credit-value">Sanchanalna Movies</div>
+                    </div>
+                    <div class="credit-item">
+                        <div class="credit-label">Producer</div>
+                        <div class="credit-value">Ramakrishna Nigade</div>
+                    </div>
+                    <div class="credit-item">
+                        <div class="credit-label">Writer & Director</div>
+                        <div class="credit-value">Rakshith Thirthahalli</div>
+                    </div>
+                    <div class="credit-item">
+                        <div class="credit-label">Cinematography</div>
+                        <div class="credit-value">Guruprasad Narnad</div>
+                    </div>
+                    <div class="credit-item">
+                        <div class="credit-label">Music</div>
+                        <div class="credit-value">Hemanth Jois</div>
+                    </div>
+                    <div class="credit-item">
+                        <div class="credit-label">Editor</div>
+                        <div class="credit-value">Sudheer SJ</div>
+                    </div>
+                    <div class="credit-item">
+                        <div class="credit-label">Sound Design</div>
+                        <div class="credit-value">Kumar S</div>
+                    </div>
+                    <div class="credit-item">
+                        <div class="credit-label">PRO</div>
+                        <div class="credit-value">Sudhindra Venkatesh</div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section class="cta">
-        <h2>Let's Create Cinema Together</h2>
-        <p>Have a film project? Looking for an editor, producer, or actor?<br>Let's bring your cinematic vision to life.</p>
-        <a href="index.html#contact"><button class="cta-btn">Get In Touch</button></a>
+    <!-- VIDEO GALLERY -->
+    <section style="background: linear-gradient(180deg, #0a0a0a 0%, var(--bg) 100%);">
+        <h2 class="section-title" style="text-align: center;">Film Trailers & Teasers</h2>
+        <p class="section-subtitle" style="text-align: center; margin: 0 auto;">Watch the official trailers and behind-the-scenes content</p>
+
+        <div class="video-gallery">
+            <a href="https://www.youtube.com/watch?v=kbED4FWTcZA" target="_blank" class="video-item">
+                <div class="video-thumbnail-wrapper">
+                    <img src="https://img.youtube.com/vi/kbED4FWTcZA/maxresdefault.jpg" alt="Official Trailer">
+                    <div class="play-overlay"><i class="fas fa-play"></i></div>
+                </div>
+                <div class="video-caption">
+                    <h3 class="video-title">Official Trailer</h3>
+                    <p class="video-desc">Main theatrical trailer</p>
+                </div>
+            </a>
+
+            <a href="https://www.youtube.com/watch?v=SebyQfmvXQE" target="_blank" class="video-item">
+                <div class="video-thumbnail-wrapper">
+                    <img src="https://img.youtube.com/vi/SebyQfmvXQE/maxresdefault.jpg" alt="Teaser">
+                    <div class="play-overlay"><i class="fas fa-play"></i></div>
+                </div>
+                <div class="video-caption">
+                    <h3 class="video-title">Official Teaser</h3>
+                    <p class="video-desc">First look teaser</p>
+                </div>
+            </a>
+
+            <a href="https://www.youtube.com/watch?v=hCIDOZIDMdk" target="_blank" class="video-item">
+                <div class="video-thumbnail-wrapper">
+                    <img src="https://img.youtube.com/vi/hCIDOZIDMdk/maxresdefault.jpg" alt="Promo">
+                    <div class="play-overlay"><i class="fas fa-play"></i></div>
+                </div>
+                <div class="video-caption">
+                    <h3 class="video-title">Promotional Video</h3>
+                    <p class="video-desc">Film promotion content</p>
+                </div>
+            </a>
+
+            <a href="https://www.youtube.com/watch?v=3f1G3laG8TI" target="_blank" class="video-item">
+                <div class="video-thumbnail-wrapper">
+                    <img src="https://img.youtube.com/vi/3f1G3laG8TI/maxresdefault.jpg" alt="Behind the Scenes">
+                    <div class="play-overlay"><i class="fas fa-play"></i></div>
+                </div>
+                <div class="video-caption">
+                    <h3 class="video-title">Behind The Scenes</h3>
+                    <p class="video-desc">Making of the film</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- OTHER FILMS -->
+    <section>
+        <h2 class="section-title" style="text-align: center;">Other Film Work</h2>
+        <p class="section-subtitle" style="text-align: center; margin: 0 auto;">Additional cinematic projects and collaborations</p>
+
+        <div class="video-gallery">
+            <a href="https://www.youtube.com/watch?v=4YBr4_yoRpk" target="_blank" class="video-item">
+                <div class="video-thumbnail-wrapper">
+                    <img src="https://img.youtube.com/vi/4YBr4_yoRpk/maxresdefault.jpg" alt="Film Project">
+                    <div class="play-overlay"><i class="fas fa-play"></i></div>
+                </div>
+                <div class="video-caption">
+                    <h3 class="video-title">Film Showreel</h3>
+                    <p class="video-desc">Compilation of film work</p>
+                </div>
+            </a>
+        </div>
     </section>
 
     <footer>
@@ -277,5 +624,17 @@
             <p class="footer-text">&copy; 2025 Sudheer J. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
