@@ -3,11 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SUDHEER J | Visual Director & Storyteller</title>
+    <title>Sudheer J | Digital Filmmaker & Video Editor | 10+ Years Experience</title>
+    <meta name="description" content="Senior Video Editor at Pocket FM with 10+ years crafting visual stories for Apple, Annalect, Prodapt, Mu Sigma. Expert in corporate videos, motion graphics, and AI-enhanced visuals.">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Sudheer J | Digital Filmmaker">
+    <meta property="og:description" content="10+ years sculpting visual narratives for global brands">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sudheer-visuals.netlify.app">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@400;600&family=Manrope:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
+    
     <style>
         :root { 
             --bg: #050505; 
@@ -33,6 +40,57 @@
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
+        /* NAVIGATION */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(5,5,5,0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo {
+            font-family: 'Anton', sans-serif;
+            font-size: 1.5rem;
+            letter-spacing: 3px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-family: 'Oswald', sans-serif;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .filming-btn {
+            padding: 10px 25px;
+            border: 2px solid #E50914;
+            color: #E50914;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .filming-btn:hover {
+            background: #E50914;
+            color: white;
+        }
+
         /* HERO */
         .hero { 
             height: 100vh; 
@@ -41,6 +99,7 @@
             justify-content: center; 
             position: relative; 
             overflow: hidden;
+            margin-top: 70px;
         }
         
         .video-bg { 
@@ -53,24 +112,25 @@
             height: auto; 
             transform: translate(-50%, -50%);
             object-fit: cover; 
-            opacity: 0.35; 
+            opacity: 0.25; 
             z-index: 0; 
-            filter: grayscale(100%) contrast(1.2);
+            filter: grayscale(80%) contrast(1.2);
         }
         
         .hero::before {
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: radial-gradient(ellipse at center, transparent 0%, rgba(5,5,5,0.8) 100%);
+            background: radial-gradient(ellipse at center, transparent 0%, rgba(5,5,5,0.9) 100%);
             z-index: 1;
-            pointer-events: none;
         }
         
         .hero-content { 
             text-align: center; 
             z-index: 2; 
             position: relative;
+            max-width: 1200px;
+            padding: 0 20px;
         }
         
         .hero h1 { 
@@ -83,486 +143,806 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
         }
         
-        .hero p {
+        .hero .subtitle {
             font-family: 'Oswald', sans-serif;
-            letter-spacing: 6px; 
-            color: #666;
-            font-size: clamp(0.8rem, 2vw, 1rem);
+            letter-spacing: 4px; 
+            color: #999;
+            font-size: clamp(0.9rem, 2vw, 1.2rem);
             font-weight: 400;
-            margin-bottom: 30px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .hero .tagline {
+            font-size: clamp(1rem, 2.5vw, 1.4rem);
+            color: #666;
+            margin-bottom: 40px;
+            font-weight: 300;
+            line-height: 1.8;
         }
         
         .hero-btn { 
-            padding: 16px 40px; 
-            border: 1px solid rgba(255,255,255,0.3); 
-            display: inline-block; 
-            font-weight: 600;
-            font-size: 0.9rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            position: relative;
-            overflow: hidden;
-            backdrop-filter: blur(10px);
-            background: rgba(255,255,255,0.05);
-        }
-        
-        .hero-btn::before {
-            content: '';
-            position: absolute;
-            top: 0; left: -100%;
-            width: 100%; height: 100%;
-            background: white;
-            transition: left 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            z-index: -1;
-        }
-        
-        .hero-btn:hover::before { left: 0; }
-        .hero-btn:hover { color: black; border-color: white; }
-
-        /* MOVIE LINK BUTTON */
-        .movie-link-fixed {
-            position: fixed; 
-            top: 30px; 
-            right: 30px;
-            background: #E50914; 
-            padding: 12px 24px; 
-            border-radius: 4px;
-            font-weight: 700; 
-            text-transform: uppercase; 
-            z-index: 1000;
-            font-size: 0.85rem;
-            letter-spacing: 1px;
-            box-shadow: 0 4px 20px rgba(229, 9, 20, 0.4);
-            transition: all 0.3s ease;
-        }
-        
-        .movie-link-fixed:hover { 
-            transform: translateY(-2px); 
-            box-shadow: 0 6px 30px rgba(229, 9, 20, 0.6);
-        }
-        
-        .movie-link-fixed i { margin-right: 8px; }
-
-        /* CLIENT LOGO TICKER */
-        .ticker-wrap {
-            width: 100%; 
-            overflow: hidden; 
-            background: linear-gradient(180deg, #000 0%, #0a0a0a 100%);
-            padding: 60px 0;
-            border-bottom: 1px solid var(--border); 
-            border-top: 1px solid var(--border);
-            position: relative;
-        }
-        
-        .ticker-wrap::before,
-        .ticker-wrap::after {
-            content: '';
-            position: absolute;
-            top: 0; bottom: 0;
-            width: 200px;
-            z-index: 2;
-            pointer-events: none;
-        }
-        
-        .ticker-wrap::before {
-            left: 0;
-            background: linear-gradient(90deg, #000 0%, transparent 100%);
-        }
-        
-        .ticker-wrap::after {
-            right: 0;
-            background: linear-gradient(270deg, #000 0%, transparent 100%);
-        }
-        
-        .ticker { 
-            display: flex; 
-            width: fit-content; 
-            animation: ticker 30s linear infinite;
-        }
-        
-        .ticker:hover { animation-play-state: paused; }
-        
-        .logo-item {
-            font-size: 1.8rem; 
-            color: #333; 
-            margin: 0 60px;
-            transition: all 0.4s ease;
-            opacity: 0.5; 
-            display: flex; 
-            align-items: center; 
-            gap: 12px;
+            padding: 18px 50px; 
+            border: 2px solid rgba(255,255,255,0.3); 
+            background: transparent;
+            color: white;
             font-family: 'Oswald', sans-serif;
-            font-weight: 600;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.4s;
+            text-transform: uppercase;
+        }
+
+        .hero-btn:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        /* CLIENT TICKER */
+        .clients {
+            padding: 60px 0;
+            background: linear-gradient(180deg, var(--bg) 0%, #0a0a0a 100%);
+            overflow: hidden;
+        }
+
+        .clients h3 {
+            text-align: center;
+            font-family: 'Oswald', sans-serif;
+            letter-spacing: 4px;
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+        }
+
+        .ticker {
+            display: flex;
+            animation: scroll 30s linear infinite;
+            gap: 80px;
+        }
+
+        .ticker-item {
+            font-family: 'Anton', sans-serif;
+            font-size: 2rem;
+            letter-spacing: 3px;
+            color: #333;
             white-space: nowrap;
-        }
-        
-        .logo-item i { font-size: 2.2rem; }
-        
-        .logo-item:hover { 
-            color: white; 
-            opacity: 1; 
-            transform: scale(1.15); 
-            text-shadow: 0 0 20px rgba(255,255,255,0.5);
+            transition: all 0.3s;
         }
 
-        @keyframes ticker { 
-            0% { transform: translateX(0); } 
-            100% { transform: translateX(-50%); } 
+        .ticker-item:hover {
+            color: var(--accent);
         }
 
-        /* FILTER & GRID */
-        .filter-section {
-            padding: 80px 20px 40px;
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* PORTFOLIO SECTION */
+        .portfolio {
+            padding: 100px 5%;
             max-width: 1400px;
             margin: 0 auto;
         }
-        
-        .filter-nav { 
+
+        .section-title {
+            font-family: 'Anton', sans-serif;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            letter-spacing: 6px;
             text-align: center;
-            margin-bottom: 60px;
-        }
-        
-        .filter-btn { 
-            background: transparent; 
-            border: 1px solid var(--border); 
-            color: #666; 
-            padding: 10px 24px; 
-            margin: 8px; 
-            cursor: pointer; 
-            border-radius: 30px;
-            font-family: 'Manrope', sans-serif;
-            font-weight: 600;
-            font-size: 0.9rem;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
+            margin-bottom: 20px;
             text-transform: uppercase;
         }
-        
-        .filter-btn.active { 
-            background: white; 
-            color: black; 
-            border-color: white;
-            box-shadow: 0 4px 15px rgba(255,255,255,0.2);
-        }
-        
-        .filter-btn:hover { 
-            background: rgba(255,255,255,0.1); 
-            color: white;
-            border-color: rgba(255,255,255,0.3);
-        }
-        
-        /* GRID */
-        .grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); 
-            gap: 24px; 
-            padding-bottom: 100px;
-        }
-        
-        .card { 
-            height: 280px; 
-            background: var(--card-bg); 
-            position: relative; 
-            display: none; 
-            overflow: hidden;
-            border-radius: 4px;
-            border: 1px solid var(--border);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .card.show { 
-            display: block; 
-            animation: fadeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.8) 100%);
-            z-index: 1;
-            opacity: 0.6;
-            transition: opacity 0.4s ease;
-        }
-        
-        .card:hover::before { opacity: 0.9; }
-        
-        .card img { 
-            width: 100%; 
-            height: 100%; 
-            object-fit: cover; 
-            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-            opacity: 0.8;
-        }
-        
-        .card:hover img { 
-            transform: scale(1.08); 
-            opacity: 1;
-        }
-        
-        .card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 40px rgba(0,0,0,0.6);
-            border-color: rgba(255,255,255,0.1);
-        }
-        
-        .card-info { 
-            position: absolute; 
-            bottom: 24px; 
-            left: 24px; 
-            z-index: 2;
-            transition: transform 0.4s ease;
-        }
-        
-        .card:hover .card-info { transform: translateY(-4px); }
-        
-        .card-info h3 {
-            font-family: 'Oswald', sans-serif;
-            font-size: 1.3rem;
-            font-weight: 600;
-            letter-spacing: 1px;
-            margin-bottom: 4px;
-        }
-        
-        .card-info p {
-            font-size: 0.85rem;
-            color: #888;
-            letter-spacing: 0.5px;
+
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 60px;
         }
 
-        @keyframes fadeIn { 
-            from { opacity: 0; transform: translateY(30px); } 
-            to { opacity: 1; transform: translateY(0); } 
+        /* FILTER TABS */
+        .filter-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 60px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 12px 30px;
+            background: transparent;
+            border: 1px solid var(--border);
+            color: #666;
+            font-family: 'Oswald', sans-serif;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: white;
+        }
+
+        /* VIDEO GRID */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .video-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            overflow: hidden;
+            transition: all 0.4s;
+            cursor: pointer;
+        }
+
+        .video-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+        }
+
+        .video-thumbnail {
+            position: relative;
+            padding-bottom: 56.25%;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .video-thumbnail img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s;
+        }
+
+        .video-card:hover .video-thumbnail img {
+            transform: scale(1.05);
+        }
+
+        .play-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background: rgba(41, 151, 255, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .video-card:hover .play-overlay {
+            background: var(--accent);
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+
+        .play-overlay i {
+            font-size: 1.5rem;
+            margin-left: 3px;
+        }
+
+        .video-info {
+            padding: 20px;
+        }
+
+        .video-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .video-meta {
+            color: #666;
+            font-size: 0.85rem;
+        }
+
+        .video-category {
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(41, 151, 255, 0.1);
+            color: var(--accent);
+            border-radius: 3px;
+            font-size: 0.75rem;
+            margin-top: 10px;
+            letter-spacing: 1px;
+        }
+
+        /* ABOUT SECTION */
+        .about {
+            padding: 100px 5%;
+            background: linear-gradient(180deg, var(--bg) 0%, #0a0a0a 100%);
+        }
+
+        .about-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-family: 'Anton', sans-serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            letter-spacing: 4px;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+
+        .about-text p {
+            color: #999;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .skill-item {
+            padding: 15px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent);
+        }
+
+        .skill-item h4 {
+            font-family: 'Oswald', sans-serif;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+        }
+
+        .skill-item p {
+            color: #666;
+            font-size: 0.85rem;
+            margin: 0;
+        }
+
+        .experience-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .stat-box {
+            text-align: center;
+            padding: 40px 20px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+        }
+
+        .stat-number {
+            font-family: 'Anton', sans-serif;
+            font-size: 4rem;
+            color: var(--accent);
+            letter-spacing: 3px;
+        }
+
+        .stat-label {
+            font-family: 'Oswald', sans-serif;
+            letter-spacing: 2px;
+            color: #666;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        /* CONTACT SECTION */
+        .contact {
+            padding: 100px 5%;
+        }
+
+        .contact-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-family: 'Anton', sans-serif;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            letter-spacing: 6px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .contact p {
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 50px;
+        }
+
+        .contact-form {
+            display: grid;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: grid;
+            gap: 20px;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 18px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            color: white;
+            font-family: 'Manrope', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .submit-btn {
+            padding: 18px 50px;
+            background: var(--accent);
+            border: none;
+            color: white;
+            font-family: 'Oswald', sans-serif;
+            letter-spacing: 3px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            justify-self: center;
+        }
+
+        .submit-btn:hover {
+            background: #1a7acc;
+            transform: translateY(-2px);
+        }
+
+        /* FOOTER */
+        footer {
+            padding: 60px 5%;
+            background: #000;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .social-links a {
+            font-size: 1.5rem;
+            color: #666;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .footer-text {
+            color: #666;
+            font-size: 0.9rem;
         }
 
         /* MOBILE RESPONSIVE */
         @media (max-width: 768px) {
-            .hero { height: 80vh; }
-            .hero h1 { letter-spacing: 4px; }
-            .hero p { letter-spacing: 3px; }
-            .movie-link-fixed { top: 20px; right: 20px; padding: 10px 18px; font-size: 0.75rem; }
-            .ticker-wrap { padding: 40px 0; }
-            .logo-item { font-size: 1.4rem; margin: 0 40px; }
-            .logo-item i { font-size: 1.8rem; }
-            .filter-section { padding: 60px 15px 30px; }
-            .filter-btn { padding: 8px 18px; font-size: 0.8rem; margin: 5px; }
-            .grid { grid-template-columns: 1fr; gap: 20px; padding-bottom: 60px; }
-            .card { height: 240px; }
-            .card-info { bottom: 20px; left: 20px; }
-            .card-info h3 { font-size: 1.1rem; }
+            .nav-links {
+                display: none;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .form-group {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 30px;
+                text-align: center;
+            }
+
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .experience-stats {
+                grid-template-columns: 1fr;
+            }
         }
 
-        @media (max-width: 480px) {
-            .hero-btn { padding: 14px 30px; font-size: 0.8rem; }
-            .movie-link-fixed span { display: none; }
-            .movie-link-fixed i { margin-right: 0; }
+        .hidden {
+            display: none;
         }
     </style>
 </head>
 <body>
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="logo">SUDHEER J</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#portfolio">Corporate Work</a></li>
+            <li><a href="filming.html" class="filming-btn">Filming & Cinema</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
 
-    <a href="movie.html" class="movie-link-fixed">
-        <i class="fa-solid fa-film"></i>
-        <span>View Feature Film</span>
-    </a>
-
-    <!-- HERO -->
-    <header class="hero">
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
         <video class="video-bg" autoplay muted loop playsinline>
-            <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4" type="video/mp4">
+            <source src="https://cdn.myportfolio.com/58789622-9b7a-4e02-8150-cfd41312a6f3/showreel.mp4" type="video/mp4">
         </video>
-        <div class="hero-content" data-aos="fade-up" data-aos-duration="1200">
+        <div class="hero-content">
             <h1>SUDHEER J</h1>
-            <p>DIGITAL FILMMAKER // VISUAL STORYTELLER</p>
-            <a href="#work" class="hero-btn">See Selected Work</a>
+            <p class="subtitle">Digital Filmmaker & Video Editor</p>
+            <p class="tagline">Senior Video Editor at Pocket FM | 10+ Years Crafting Visual Stories for Global Brands</p>
+            <a href="#portfolio"><button class="hero-btn">View My Work</button></a>
         </div>
-    </header>
+    </section>
 
-    <!-- CLIENT LOGOS -->
-    <div class="ticker-wrap">
+    <!-- CLIENT TICKER -->
+    <section class="clients">
+        <h3>Trusted by Leading Brands</h3>
         <div class="ticker">
-            <div class="logo-item"><i class="fa-brands fa-apple"></i> APPLE</div>
-            <div class="logo-item"><i class="fa-solid fa-microchip"></i> POCKET FM</div>
-            <div class="logo-item"><i class="fa-solid fa-building"></i> PRODAPT</div>
-            <div class="logo-item"><i class="fa-solid fa-chart-line"></i> ANNALECT</div>
-            <div class="logo-item"><i class="fa-solid fa-mobile-screen"></i> INMOBI</div>
-            <div class="logo-item"><i class="fa-solid fa-sigma"></i> MU SIGMA</div>
-            <!-- Duplicate for seamless loop -->
-            <div class="logo-item"><i class="fa-brands fa-apple"></i> APPLE</div>
-            <div class="logo-item"><i class="fa-solid fa-microchip"></i> POCKET FM</div>
-            <div class="logo-item"><i class="fa-solid fa-building"></i> PRODAPT</div>
-            <div class="logo-item"><i class="fa-solid fa-chart-line"></i> ANNALECT</div>
-            <div class="logo-item"><i class="fa-solid fa-mobile-screen"></i> INMOBI</div>
-            <div class="logo-item"><i class="fa-solid fa-sigma"></i> MU SIGMA</div>
+            <div class="ticker-item">POCKET FM</div>
+            <div class="ticker-item">APPLE</div>
+            <div class="ticker-item">ANNALECT INDIA</div>
+            <div class="ticker-item">PRODAPT</div>
+            <div class="ticker-item">MU SIGMA</div>
+            <div class="ticker-item">INMOBI</div>
+            <div class="ticker-item">POCKET FM</div>
+            <div class="ticker-item">APPLE</div>
+            <div class="ticker-item">ANNALECT INDIA</div>
+            <div class="ticker-item">PRODAPT</div>
         </div>
-    </div>
+    </section>
 
-    <!-- WORK GRID -->
-    <div id="work" class="filter-section">
-        <nav class="filter-nav">
-            <button class="filter-btn active" onclick="filterSelection('all')">All Work</button>
-            <button class="filter-btn" onclick="filterSelection('apple')">Apple | Localization</button>
-            <button class="filter-btn" onclick="filterSelection('music')">Music Videos</button>
-            <button class="filter-btn" onclick="filterSelection('corporate')">Corporate</button>
-            <button class="filter-btn" onclick="filterSelection('ai')">AI & Workflow</button>
-            <button class="filter-btn" onclick="filterSelection('3d')">3D Renders</button>
-        </nav>
+    <!-- PORTFOLIO SECTION -->
+    <section class="portfolio" id="portfolio">
+        <h2 class="section-title">Portfolio</h2>
+        <p class="section-subtitle">Explore my work across corporate films, music videos, and AI-enhanced visuals</p>
 
-        <div class="grid">
-            <!-- APPLE CATEGORY (14 videos) -->
-            <a href="https://www.youtube.com/watch?v=VWv6ebaknXU" target="_blank" class="card show" data-category="apple">
-                <img src="https://img.youtube.com/vi/VWv6ebaknXU/maxresdefault.jpg" alt="Apple Localization">
-                <div class="card-info"><h3>Apple Localization</h3><p>Regional Content</p></div>
-            </a>
-            <a href="https://www.youtube.com/watch?v=WtLTRzo-uIw" target="_blank" class="card show" data-category="apple">
-                <img src="https://img.youtube.com/vi/WtLTRzo-uIw/maxresdefault.jpg" alt="Apple Localization">
-                <div class="card-info"><h3>Apple Localization</h3><p>Regional Content</p></div>
-            </a>
-            <a href="https://www.youtube.com/watch?v=bqBfa0vzZAs" target="_blank" class="card show" data-category="apple">
-                <img src="https://img.youtube.com/vi/bqBfa0vzZAs/maxresdefault.jpg" alt="Apple Localization">
-                <div class="card-info"><h3>Apple Localization</h3><p>Regional Content</p></div>
-            </a>
-            <a href="https://www.youtube.com/watch?v=cqdXLxd9iEs" target="_blank" class="card show" data-category="apple">
-                <img src="https://img.youtube.com/vi/cqdXLxd9iEs/maxresdefault.jpg" alt="Apple Localization">
-                <div class="card-info"><h3>Apple Localization</h3><p>Regional Content</p></div>
-            </a>
-            <a href="https://www.youtube.com/watch?v=iVR6hbmxzNE" target="_blank" class="card show" data-category="apple">
-                <img src="https://img.youtube.com/vi/iVR6hbmxzNE/maxresdefault.jpg" alt="Apple Localization">
-                <div class="card-info"><h3>Apple Localization</h3><p>Regional Content</p></div>
-            </a>
-            <a href="https://www.youtube.com/watch?v=8QJmD1EPYYk" target="_blank" class="card show" data-category="apple">
-                <img src="https://img.youtube.com/vi/8QJmD1EPYYk/maxresdefault.jpg" alt="Apple Localization">
-                <div class="card-info"><h3>Apple Localization</h3><p>Regional Content</p></div>
-            </a>
-            <a href="https://www.youtube.com/watch?v=eTHz26-3oI4" target="_blank" class="card show" data-category="apple">
-                <img src="https://img.youtube.com/vi/eTHz26-3oI4/maxresdefault.jpg" alt="Apple Localization">
-                <div class="card-info"><h3>Apple Localization</h3><p>Regional Content</p></div>
-            </a>
-            <a href="https://www.youtube.com/watch?v=nEYmlj9jKdU" target="_blank" class="card show" data-category="apple">
-                <img src="https://img.youtube.com/vi/nEYmlj9jKdU/maxresdefault.jpg" alt="Apple Localization">
-                <div class="card-info"><h3>Apple Localization</h3><p>Regional Content</p></div>
-            </a>
-            <a href="https://www.youtube.com/watch?v=gqxkGnTM0bY" target="_blank" class="card show" data-category="apple">
-                <img src="https://img.youtube.com/vi/gqxkGnTM0bY/maxresdefault.jpg" alt="Apple Localization">
-                <div class="card-info"><h3>Apple Localization</h3><p>Regional Content</p></div>
-            </a>
-            <a href="https://www.youtube.com/watch?v=-xhpEZVMfa0" target="_blank" class="card show" data-category="apple">
-                <img src="https://img.youtube.com/vi/-xhpEZVMfa0/maxresdefault.jpg" alt="Apple Localization">
-                <div class="card-info"><h3>Apple Localization</h3><p>Regional Content</p></div>
-            </a>
-            <a href="https://www.youtube.com/watch?v=nzz6ca-YNb8" target="_blank" class="card show" data-category="apple">
-                <img src="https://img.youtube.com/vi/nzz6ca-YNb8/maxresdefault.jpg" alt="Apple Localization">
-                <div class="card-info"><h3>Apple Localization</h3><p>Regional Content</p></div>
-            </a>
-            <a href="https://www.youtube.com/watch?v=Nt_lbFsVKbA" target="_blank" class="card show" data-category="apple">
-                <img src="https://img.youtube.com/vi/Nt_lbFsVKbA/maxresdefault.jpg" alt="Apple Localization">
-                <div class="card-info"><h3>Apple Localization</h3><p>Regional Content</p></div>
-            </a>
-            <a href="https://www.youtube.com/watch?v=HWMXN_lq9bg" target="_blank" class="card show" data-category="apple">
-                <img src="https://img.youtube.com/vi/HWMXN_lq9bg/maxresdefault.jpg" alt="Apple Localization">
-                <div class="card-info"><h3>Apple Localization</h3><p>Regional Content</p></div>
-            </a>
-            <a href="https://www.youtube.com/watch?v=__GerGfOKjA" target="_blank" class="card show" data-category="apple">
-                <img src="https://img.youtube.com/vi/__GerGfOKjA/maxresdefault.jpg" alt="Apple Localization">
-                <div class="card-info"><h3>Apple Localization</h3><p>Regional Content</p></div>
-            </a>
-
-            <!-- MUSIC VIDEOS (8 videos) -->
-            <a href="https://www.youtube.com/watch?v=_rYpnSwfm98" target="_blank" class="card show" data-category="music">
-                <img src="https://img.youtube.com/vi/_rYpnSwfm98/maxresdefault.jpg" alt="Music Video">
-                <div class="card-info"><h3>Music Video</h3><p>Original Production</p></div>
-            </a>
-            <a href="https://www.youtube.com/watch?v=FCdi2Nh-rQg" target="_blank" class="card show" data-category="music">
-                <img src="https://img.youtube.com/vi/FCdi2Nh-rQg/maxresdefault.jpg" alt="Music Video">
-                <div class="card-info"><h3>Music Video</h3><p>Original Production</p></div>
-            </a>
-            <a href="https://www.youtube.com/watch?v=6f1kdg-Ktw4" target="_blank" class="card show" data-category="music">
-                <img src="https://img.youtube.com/vi/6f1kdg-Ktw4/maxresdefault.jpg" alt="Music Video">
-                <div class="card-info"><h3>Music Video</h3><p>Original Production</p></div>
-            </a>
-            <a href="https://www.youtube.com/watch?v=E3tbQRduGSg" target="_blank" class="card show" data-category="music">
-                <img src="https://img.youtube.com/vi/E3tbQRduGSg/maxresdefault.jpg" alt="Music Video">
-                <div class="card-info"><h3>Music Video</h3><p>Original Production</p></div>
-            </a>
-            <a href="https://www.youtube.com/watch?v=oS2-txTcEEE" target="_blank" class="card show" data-category="music">
-                <img src="https://img.youtube.com/vi/oS2-txTcEEE/maxresdefault.jpg" alt="Music Video">
-                <div class="card-info"><h3>Music Video</h3><p>Original Production</p></div>
-            </a>
-            <a href="https://www.youtube.com/watch?v=Au0spxm9ivk" target="_blank" class="card show" data-category="music">
-                <img src="https://img.youtube.com/vi/Au0spxm9ivk/maxresdefault.jpg" alt="Music Video">
-                <div class="card-info"><h3>Music Video</h3><p>Original Production</p></div>
-            </a>
-            <a href="https://www.youtube.com/watch?v=bxZHs1HUZEU" target="_blank" class="card show" data-category="music">
-                <img src="https://img.youtube.com/vi/bxZHs1HUZEU/maxresdefault.jpg" alt="Music Video">
-                <div class="card-info"><h3>Music Video</h3><p>Original Production</p></div>
-            </a>
-            <a href="https://www.youtube.com/watch?v=Q38kaUCaHlQ" target="_blank" class="card show" data-category="music">
-                <img src="https://img.youtube.com/vi/Q38kaUCaHlQ/maxresdefault.jpg" alt="Music Video">
-                <div class="card-info"><h3>Music Video</h3><p>Original Production</p></div>
-            </a>
-
-            <!-- CORPORATE (3 videos) -->
-            <a href="https://www.youtube.com/watch?v=Z3CcZ-SJIEU" target="_blank" class="card show" data-category="corporate">
-                <img src="https://img.youtube.com/vi/Z3CcZ-SJIEU/maxresdefault.jpg" alt="Boltspeed">
-                <div class="card-info"><h3>Prodapt Boltspeed</h3><p>Brand Film</p></div>
-            </a>
-            <a href="https://www.youtube.com/watch?v=tZ2Jobm4wq4" target="_blank" class="card show" data-category="corporate">
-                <img src="https://img.youtube.com/vi/tZ2Jobm4wq4/maxresdefault.jpg" alt="Maveric">
-                <div class="card-info"><h3>Maveric Success Stories</h3><p>Corporate Video</p></div>
-            </a>
-            <a href="https://www.youtube.com/watch?v=G8xdlU7gXrk" target="_blank" class="card show" data-category="corporate">
-                <img src="https://img.youtube.com/vi/G8xdlU7gXrk/maxresdefault.jpg" alt="AI Framework">
-                <div class="card-info"><h3>AI Intelligence Framework</h3><p>Explainer Video</p></div>
-            </a>
-
-            <!-- AI & WORKFLOW -->
-            <a href="https://www.youtube.com/watch?v=G8xdlU7gXrk" target="_blank" class="card show" data-category="ai">
-                <img src="https://img.youtube.com/vi/G8xdlU7gXrk/maxresdefault.jpg" alt="AI Framework">
-                <div class="card-info"><h3>AI-Powered Intelligence</h3><p>Workflow Experiment</p></div>
-            </a>
-
-            <!-- 3D RENDERS -->
-            <a href="https://sudheerj0904.myportfolio.com/hidden" target="_blank" class="card show" data-category="3d">
-                <img src="https://cdn.myportfolio.com/58789622-9b7a-4e02-8150-cfd41312a6f3/9677a1c6-4020-4773-b262-347c2f193812_carw_202x158x32.jpg" alt="Hidden 3D">
-                <div class="card-info"><h3>Hidden</h3><p>3D Art</p></div>
-            </a>
-            <a href="https://sudheerj0904.myportfolio.com/haunted-room" target="_blank" class="card show" data-category="3d">
-                <img src="https://cdn.myportfolio.com/58789622-9b7a-4e02-8150-cfd41312a6f3/d7cb142d-f0e0-461a-8797-2fcb555bda83_carw_202x158x32.jpg" alt="Haunted Room">
-                <div class="card-info"><h3>Haunted Room</h3><p>3D Art</p></div>
-            </a>
+        <!-- FILTER TABS -->
+        <div class="filter-tabs">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="apple">Apple Localization</button>
+            <button class="filter-btn" data-filter="corporate">Corporate Films</button>
+            <button class="filter-btn" data-filter="music">Music Videos</button>
+            <button class="filter-btn" data-filter="ai">AI Experiments</button>
+            <button class="filter-btn" data-filter="3d">3D Art</button>
         </div>
-    </div>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <!-- VIDEO GRID -->
+        <div class="video-grid" id="videoGrid">
+            <!-- Apple Localization Projects -->
+            <div class="video-card" data-category="apple">
+                <div class="video-thumbnail">
+                    <img src="https://cdn.myportfolio.com/58789622-9b7a-4e02-8150-cfd41312a6f3/a1a55d9b-b023-45f7-95cb-333e9ab827be_rwc_215x0x1529x1196x32.png" alt="Apple Localization">
+                    <div class="play-overlay"><i class="fas fa-play"></i></div>
+                </div>
+                <div class="video-info">
+                    <h3 class="video-title">Apple | Localization Project</h3>
+                    <p class="video-meta">14 Videos | Regional Language Adaptation</p>
+                    <span class="video-category">Apple</span>
+                </div>
+            </div>
+
+            <!-- AI Diffusion Video -->
+            <div class="video-card" data-category="ai">
+                <div class="video-thumbnail">
+                    <img src="https://cdn.myportfolio.com/58789622-9b7a-4e02-8150-cfd41312a6f3/236a3d46-a5d9-4981-82c5-1fe116c3096b_rwc_13x0x613x480x32.jpg" alt="AI Diffusion">
+                    <div class="play-overlay"><i class="fas fa-play"></i></div>
+                </div>
+                <div class="video-info">
+                    <h3 class="video-title">AI Diffusion Video</h3>
+                    <p class="video-meta">Stable Diffusion Animation</p>
+                    <span class="video-category">AI</span>
+                </div>
+            </div>
+
+            <!-- AI Intelligence Framework -->
+            <div class="video-card" data-category="ai">
+                <div class="video-thumbnail">
+                    <img src="https://cdn.myportfolio.com/58789622-9b7a-4e02-8150-cfd41312a6f3/9c9f9566-0313-4547-acfe-adf2943e23eb_carw_202x158x32.jpg" alt="AI Framework">
+                    <div class="play-overlay"><i class="fas fa-play"></i></div>
+                </div>
+                <div class="video-info">
+                    <h3 class="video-title">AI-Powered Intelligence Framework</h3>
+                    <p class="video-meta">Corporate Explainer</p>
+                    <span class="video-category">AI</span>
+                </div>
+            </div>
+
+            <!-- Maveric Success Stories -->
+            <div class="video-card" data-category="corporate">
+                <div class="video-thumbnail">
+                    <img src="https://cdn.myportfolio.com/58789622-9b7a-4e02-8150-cfd41312a6f3/032ca903-7b30-4fef-b461-7671a21f01e8_rwc_66x0x920x720x32.jpg" alt="Maveric">
+                    <div class="play-overlay"><i class="fas fa-play"></i></div>
+                </div>
+                <div class="video-info">
+                    <h3 class="video-title">Maveric Success Stories</h3>
+                    <p class="video-meta">Corporate Brand Film</p>
+                    <span class="video-category">Corporate</span>
+                </div>
+            </div>
+
+            <!-- Boltspeed Promo -->
+            <div class="video-card" data-category="corporate">
+                <div class="video-thumbnail">
+                    <img src="https://cdn.myportfolio.com/58789622-9b7a-4e02-8150-cfd41312a6f3/a4bf3646-ca05-45f0-9b32-9da10fbe9407_carw_202x158x32.jpg" alt="Boltspeed">
+                    <div class="play-overlay"><i class="fas fa-play"></i></div>
+                </div>
+                <div class="video-info">
+                    <h3 class="video-title">Prodapt's Boltspeed</h3>
+                    <p class="video-meta">Promotional Video</p>
+                    <span class="video-category">Corporate</span>
+                </div>
+            </div>
+
+            <!-- Kaleyra Motion Graphics -->
+            <div class="video-card" data-category="corporate">
+                <div class="video-thumbnail">
+                    <img src="https://cdn.myportfolio.com/58789622-9b7a-4e02-8150-cfd41312a6f3/e724c40e-74b9-4b30-b92b-610042b6fe90_carw_202x158x32.png" alt="Kaleyra">
+                    <div class="play-overlay"><i class="fas fa-play"></i></div>
+                </div>
+                <div class="video-info">
+                    <h3 class="video-title">Introducing Kaleyra</h3>
+                    <p class="video-meta">Motion Graphics Explainer</p>
+                    <span class="video-category">Corporate</span>
+                </div>
+            </div>
+
+            <!-- Mu Sigma -->
+            <div class="video-card" data-category="corporate">
+                <div class="video-thumbnail">
+                    <img src="https://cdn.myportfolio.com/58789622-9b7a-4e02-8150-cfd41312a6f3/a5210963-bca8-4be7-bd50-2b6f15318048_rwc_129x0x920x720x32.jpg" alt="Mu Sigma">
+                    <div class="play-overlay"><i class="fas fa-play"></i></div>
+                </div>
+                <div class="video-info">
+                    <h3 class="video-title">Mu Sigma</h3>
+                    <p class="video-meta">Corporate Content Series</p>
+                    <span class="video-category">Corporate</span>
+                </div>
+            </div>
+
+            <!-- Chai Point -->
+            <div class="video-card" data-category="corporate">
+                <div class="video-thumbnail">
+                    <img src="https://cdn.myportfolio.com/58789622-9b7a-4e02-8150-cfd41312a6f3/1e1e2dee-56e6-4cee-be46-0b8a49b2ce93_carw_202x158x32.png" alt="Chai Point">
+                    <div class="play-overlay"><i class="fas fa-play"></i></div>
+                </div>
+                <div class="video-info">
+                    <h3 class="video-title">Chai Point - A Glimpse Into Our Chai World</h3>
+                    <p class="video-meta">Brand Film</p>
+                    <span class="video-category">Corporate</span>
+                </div>
+            </div>
+
+            <!-- Khushi Music Video -->
+            <div class="video-card" data-category="music">
+                <div class="video-thumbnail">
+                    <img src="https://cdn.myportfolio.com/58789622-9b7a-4e02-8150-cfd41312a6f3/87263469-6858-4054-99b1-1a5002541030_rwc_204x0x863x675x32.jpg" alt="Khushi">
+                    <div class="play-overlay"><i class="fas fa-play"></i></div>
+                </div>
+                <div class="video-info">
+                    <h3 class="video-title">Khushi Kannada Music Video</h3>
+                    <p class="video-meta">Music Video Production</p>
+                    <span class="video-category">Music</span>
+                </div>
+            </div>
+
+            <!-- Nritarutya Dance -->
+            <div class="video-card" data-category="music">
+                <div class="video-thumbnail">
+                    <img src="https://cdn.myportfolio.com/58789622-9b7a-4e02-8150-cfd41312a6f3/a7082248-03aa-4d7a-a18e-82dc5111b432_rwc_401x0x1381x1080x32.png" alt="Nritarutya">
+                    <div class="play-overlay"><i class="fas fa-play"></i></div>
+                </div>
+                <div class="video-info">
+                    <h3 class="video-title">Nritarutya – Contemporary Indian Dance</h3>
+                    <p class="video-meta">Performance Video</p>
+                    <span class="video-category">Music</span>
+                </div>
+            </div>
+
+            <!-- 3D Art - Hidden -->
+            <div class="video-card" data-category="3d">
+                <div class="video-thumbnail">
+                    <img src="https://cdn.myportfolio.com/58789622-9b7a-4e02-8150-cfd41312a6f3/9677a1c6-4020-4773-b262-347c2f193812_carw_202x158x32.jpg" alt="Hidden 3D">
+                    <div class="play-overlay"><i class="fas fa-play"></i></div>
+                </div>
+                <div class="video-info">
+                    <h3 class="video-title">Hidden | 3D Art</h3>
+                    <p class="video-meta">3D Rendering & Animation</p>
+                    <span class="video-category">3D</span>
+                </div>
+            </div>
+
+            <!-- 3D Art - Haunted Room -->
+            <div class="video-card" data-category="3d">
+                <div class="video-thumbnail">
+                    <img src="https://cdn.myportfolio.com/58789622-9b7a-4e02-8150-cfd41312a6f3/d7cb142d-f0e0-461a-8797-2fcb555bda83_carw_202x158x32.jpg" alt="Haunted Room">
+                    <div class="play-overlay"><i class="fas fa-play"></i></div>
+                </div>
+                <div class="video-info">
+                    <h3 class="video-title">Haunted Room | 3D Art</h3>
+                    <p class="video-meta">3D Environment Design</p>
+                    <span class="video-category">3D</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="about" id="about">
+        <div class="about-content">
+            <div class="about-text">
+                <h2>About Me</h2>
+                <p>Digital Film-maker, Video Storyteller, and Creative Director with over a decade of experience sculpting visual narratives for global brands.</p>
+                <p>Currently serving as Senior Video Editor at Pocket FM, I bring stories to life through motion, rhythm, and emotion. From cinematic corporate films to AI-enhanced visuals, my work blends artistry with purpose.</p>
+                <p>My journey spans collaborations with industry giants like Apple, where I led localization projects, to innovative startups pushing the boundaries of digital storytelling.</p>
+
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <h4>Video Editing</h4>
+                        <p>Premiere Pro, Final Cut Pro</p>
+                    </div>
+                    <div class="skill-item">
+                        <h4>Motion Graphics</h4>
+                        <p>After Effects, Cinema 4D</p>
+                    </div>
+                    <div class="skill-item">
+                        <h4>Post-Production</h4>
+                        <p>Color Grading, Sound Design</p>
+                    </div>
+                    <div class="skill-item">
+                        <h4>AI Integration</h4>
+                        <p>Stable Diffusion, AI Workflows</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="experience-stats">
+                <div class="stat-box">
+                    <div class="stat-number">10+</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">100+</div>
+                    <div class="stat-label">Projects Delivered</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">6</div>
+                    <div class="stat-label">Global Brands</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">5</div>
+                    <div class="stat-label">Languages</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="contact" id="contact">
+        <div class="contact-content">
+            <h2>Let's Create Together</h2>
+            <p>Have a project in mind? Let's discuss how we can bring your vision to life.</p>
+
+            <form class="contact-form" name="contact" method="POST" data-netlify="true">
+                <input type="hidden" name="form-name" value="contact">
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                </div>
+                <select name="project-type" required>
+                    <option value="">Select Project Type</option>
+                    <option value="corporate">Corporate Video</option>
+                    <option value="film">Film Production</option>
+                    <option value="music">Music Video</option>
+                    <option value="collaboration">Collaboration</option>
+                    <option value="other">Other</option>
+                </select>
+                <textarea name="message" placeholder="Tell me about your project..." required></textarea>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/sudheer-j-0085aa62/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.imdb.com/name/nm15772067/" target="_blank" title="IMDb"><i class="fab fa-imdb"></i></a>
+                <a href="https://www.youtube.com/@esSJay221" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.behance.net/SudheerMCFY" target="_blank" title="Behance"><i class="fab fa-behance"></i></a>
+                <a href="https://sudheerj0904.myportfolio.com/" target="_blank" title="Portfolio"><i class="fas fa-briefcase"></i></a>
+            </div>
+            <p class="footer-text">&copy; 2025 Sudheer J. All rights reserved.</p>
+        </div>
+    </footer>
+
     <script>
-        AOS.init({ duration: 800, once: true });
+        // Filter functionality
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const videoCards = document.querySelectorAll('.video-card');
 
-        function filterSelection(category) {
-            const cards = document.querySelectorAll('.card');
-            const buttons = document.querySelectorAll('.filter-btn');
-            
-            buttons.forEach(btn => {
-                btn.classList.remove('active');
-                if (btn.textContent.toLowerCase().includes(category) || category === 'all') {
-                    btn.classList.add('active');
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterBtns.forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                btn.classList.add('active');
+
+                const filter = btn.getAttribute('data-filter');
+
+                videoCards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.classList.remove('hidden');
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
+            });
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
-            
-            cards.forEach(card => {
-                card.classList.remove('show');
-                card.style.display = 'none';
-                
-                const cardCategory = card.getAttribute('data-category');
-                if (category === 'all' || cardCategory === category) {
-                    card.style.display = 'block';
-                    setTimeout(() => card.classList.add('show'), 10);
-                }
-            });
-        }
+        });
     </script>
 </body>
 </html>
